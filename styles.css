@@ -193,7 +193,7 @@ p {
 .teaser-card img,
 .teaser-card video {
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 figcaption {
@@ -285,8 +285,68 @@ figcaption {
 
 .media-card img,
 .media-card video {
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.media-card.large {
+  grid-column: 1 / -1;
+}
+
+.media-note {
+  margin: 0 0 22px;
+  padding: 18px 20px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--green);
+  border-radius: 8px;
+}
+
+.media-note strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #22302c;
+}
+
+.media-note p {
+  margin: 0;
+}
+
+.media-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 14px 8px;
+}
+
+.media-meta span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  padding: 4px 9px;
+  background: #eef3ef;
+  color: #26332f;
+  border: 1px solid #d5ded8;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.media-actions {
+  padding: 0 14px 14px;
+}
+
+.media-actions a {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  padding: 6px 11px;
+  border: 1px solid #b9c5bf;
+  border-radius: 7px;
+  background: #ffffff;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .evidence-layout {
@@ -349,6 +409,8 @@ footer p {
     overflow-x: auto;
     justify-content: flex-start;
     padding-bottom: 14px;
+    gap: 18px;
+    font-size: 13px;
   }
 
   .hero {

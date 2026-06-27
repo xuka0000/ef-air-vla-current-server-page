@@ -11,6 +11,15 @@ The page uses real synchronized artifacts from the RTX5090 server:
 - Full reproduction readiness gate
 - Official original evaluator diagnostic
 
+Testing media are shown as complete animated GIFs rather than relying on browser video controls:
+
+- Complete diagnostic montage, 300 frames, 10 fps, 30.0 s total
+- Policy-side grasp-transfer diagnostic, 100 frames, 10 fps, 10.0 s
+- HDF5 raw replay diagnostic, 100 frames, 10 fps, 10.0 s
+- HDF5 target-base replay diagnostic, 100 frames, 10 fps, 10.0 s
+
+The original MP4 files are retained as downloadable artifacts.
+
 The page does not claim AIR-VLA+ reproduction, official AIR-VLA training, learned-policy task completion, hardware validation, sim-to-real transfer, or paper-level performance.
 
 Design references:

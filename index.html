@@ -19,7 +19,7 @@
       <div class="hero-inner">
         <p class="eyebrow">Work4 RTX5090 server sweep</p>
         <h1>Execution-Feedback AIR-VLA Current Server Evidence</h1>
-        <p class="subtitle">A bounded AIR-VLA and EF-AIR-VLA D0-D1 project page built from real server logs, checkpoints, JSON summaries, loss curves, and evaluator diagnostic videos.</p>
+        <p class="subtitle">A bounded AIR-VLA and EF-AIR-VLA D0-D1 project page built from real server logs, checkpoints, JSON summaries, loss curves, and complete evaluator diagnostic media.</p>
         <div class="authors">Work4 embodied aerial manipulation study</div>
         <div class="button-row">
           <a class="button primary" href="data/site.json">Evidence JSON</a>
@@ -33,14 +33,12 @@
       <section class="teaser-section" aria-label="Teaser media">
         <div class="teaser-grid">
           <figure class="teaser-card wide">
-            <img src="assets/images/bc_cuda20_loss_training.gif" alt="Animated HDF5-only BC CUDA smoke training loss over 20 episodes">
-            <figcaption>Training GIF: 20-episode HDF5-only BC CUDA smoke. This is a data-path and checkpoint smoke, not policy performance.</figcaption>
+            <img src="assets/images/air_vla_complete_diagnostic_montage.gif" alt="Complete AIR-VLA diagnostic montage with three full clips">
+            <figcaption>Complete testing montage. Three evaluator diagnostic clips are shown in full, 300 frames at 10 fps for 30.0 s total. Completion remains zero.</figcaption>
           </figure>
           <figure class="teaser-card">
-            <video controls muted loop playsinline poster="assets/images/policy_side_grasp_transfer_episode_1.jpg">
-              <source src="assets/videos/policy_side_grasp_transfer_episode_1.mp4" type="video/mp4">
-            </video>
-            <figcaption>Testing video: policy-side grasp-transfer evaluator diagnostic. Completion remains zero.</figcaption>
+            <img src="assets/images/bc_cuda20_loss_training.gif" alt="Animated HDF5-only BC CUDA smoke training loss over 20 episodes">
+            <figcaption>Training GIF. 20-episode HDF5-only BC CUDA smoke. This is a data-path and checkpoint smoke, not policy performance.</figcaption>
           </figure>
         </div>
       </section>
@@ -98,7 +96,11 @@
       <section id="media" class="section">
         <div class="section-head">
           <h2>Training And Testing Media</h2>
-          <p>Training media comes from current-server loss CSV files. Testing videos come from AIR-VLA evaluator diagnostics already synchronized in Work4.</p>
+          <p>Training media comes from current-server loss CSV files. Testing media comes from complete AIR-VLA evaluator diagnostic MP4 files already synchronized in Work4.</p>
+        </div>
+        <div class="media-note">
+          <strong>Media completeness check</strong>
+          <p>Each testing GIF below is generated from the full local MP4 artifact. OpenCV verification reports 100 frames, 10 fps, and 10.0 s for each source clip. The combined teaser montage contains all 300 frames and runs for 30.0 s.</p>
         </div>
         <div class="media-grid">
           <figure class="media-card">
@@ -109,17 +111,50 @@
             <img src="assets/images/ef_cuda2_loss_training.gif" alt="EF-AIR-VLA two-row feedback smoke training loss animation">
             <figcaption>EF-AIR-VLA CUDA smoke, 2 feedback rows, 500 plus 100 resume steps.</figcaption>
           </figure>
-          <figure class="media-card">
-            <video controls muted loop playsinline poster="assets/images/hdf5_replay_raw_episode_1.jpg">
-              <source src="assets/videos/hdf5_replay_raw_episode_1.mp4" type="video/mp4">
-            </video>
-            <figcaption>HDF5 raw replay diagnostic. It exercises evaluator media output but is not learned-policy evidence.</figcaption>
+          <figure class="media-card large">
+            <img src="assets/images/air_vla_complete_diagnostic_montage.gif" alt="Complete 30 second AIR-VLA testing diagnostic montage">
+            <figcaption>Complete testing montage across the three synchronized evaluator diagnostics.</figcaption>
+            <div class="media-meta">
+              <span>Complete 30.0 s montage</span>
+              <span>300 frames</span>
+              <span>10 fps</span>
+            </div>
           </figure>
           <figure class="media-card">
-            <video controls muted loop playsinline poster="assets/images/hdf5_replay_target_base_episode_1.jpg">
-              <source src="assets/videos/hdf5_replay_target_base_episode_1.mp4" type="video/mp4">
-            </video>
+            <img src="assets/images/policy_side_grasp_transfer_full.gif" alt="Full policy-side grasp-transfer diagnostic animation">
+            <figcaption>Policy-side grasp-transfer evaluator diagnostic. Completion remains zero.</figcaption>
+            <div class="media-meta">
+              <span>Full 10.0 s</span>
+              <span>100 frames</span>
+              <span>10 fps</span>
+            </div>
+            <div class="media-actions">
+              <a href="assets/videos/policy_side_grasp_transfer_episode_1.mp4">Download MP4</a>
+            </div>
+          </figure>
+          <figure class="media-card">
+            <img src="assets/images/hdf5_replay_raw_full.gif" alt="Full HDF5 raw replay diagnostic animation">
+            <figcaption>HDF5 raw replay diagnostic. It exercises evaluator media output but is not learned-policy evidence.</figcaption>
+            <div class="media-meta">
+              <span>Full 10.0 s</span>
+              <span>100 frames</span>
+              <span>10 fps</span>
+            </div>
+            <div class="media-actions">
+              <a href="assets/videos/hdf5_replay_raw_episode_1.mp4">Download MP4</a>
+            </div>
+          </figure>
+          <figure class="media-card">
+            <img src="assets/images/hdf5_replay_target_base_full.gif" alt="Full HDF5 target-base replay diagnostic animation">
             <figcaption>HDF5 target-base replay diagnostic. Completion score remains zero.</figcaption>
+            <div class="media-meta">
+              <span>Full 10.0 s</span>
+              <span>100 frames</span>
+              <span>10 fps</span>
+            </div>
+            <div class="media-actions">
+              <a href="assets/videos/hdf5_replay_target_base_episode_1.mp4">Download MP4</a>
+            </div>
           </figure>
         </div>
       </section>
