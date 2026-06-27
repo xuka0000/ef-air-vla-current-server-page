@@ -1,0 +1,818 @@
+{
+  "title": "Execution-Feedback AIR-VLA Current Server Evidence",
+  "subtitle": "A bounded AIR-VLA and EF-AIR-VLA D0-D1 project page from the Work4 RTX5090 server sweep",
+  "updated_at": "2026-06-27",
+  "truth_level": "air_vla_current_server_d0_d1_goal_sweep_no_performance_claim",
+  "assets": {
+    "bc_loss": {
+      "png": "assets/images/bc_cuda20_loss_curve.png",
+      "gif": "assets/images/bc_cuda20_loss_training.gif",
+      "rows": 1100,
+      "first": 1.5060021877288818,
+      "last": 0.0002037403755821
+    },
+    "ef_loss": {
+      "png": "assets/images/ef_cuda2_loss_curve.png",
+      "gif": "assets/images/ef_cuda2_loss_training.gif",
+      "rows": 600,
+      "first": 1.3767039775848389,
+      "last": 2.3088938178261745e-05
+    },
+    "gate_status": "assets/images/current_server_gate_status.png"
+  },
+  "summaries": {
+    "hdf5": {
+      "created_at": "2026-06-27T02:29:43.547531+00:00",
+      "truth_level": "air_vla_hdf5_subset_audit_no_training",
+      "status": "passed_d0_hdf5_subset",
+      "hdf5_root": "/autodl-fs/data/work4_air_vla_hdf5",
+      "min_episodes": 20,
+      "min_tasks": 1,
+      "file_count": 20,
+      "valid_file_count": 20,
+      "failed_file_count": 0,
+      "task_count": 1,
+      "action_dim_set": [
+        12
+      ],
+      "state_dim_set": [
+        8
+      ],
+      "files": [
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_000.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1039599128,
+          "step_count": 282,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 14.05,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.813634,
+          "action_max_abs": 2.896657,
+          "state_mean_abs": 1.216749,
+          "state_max_abs": 2.896657,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_001.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1054345064,
+          "step_count": 286,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 14.25,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.818907,
+          "action_max_abs": 2.896007,
+          "state_mean_abs": 1.224809,
+          "state_max_abs": 2.896007,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_002.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1035912644,
+          "step_count": 281,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 14.0,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.816683,
+          "action_max_abs": 2.896012,
+          "state_mean_abs": 1.221359,
+          "state_max_abs": 2.896012,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_003.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1046972096,
+          "step_count": 284,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 14.15,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.818622,
+          "action_max_abs": 2.896003,
+          "state_mean_abs": 1.224317,
+          "state_max_abs": 2.896003,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_004.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 965869448,
+          "step_count": 262,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.05,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.801458,
+          "action_max_abs": 2.896004,
+          "state_mean_abs": 1.198363,
+          "state_max_abs": 2.896004,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_005.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1002734288,
+          "step_count": 272,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.55,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.806092,
+          "action_max_abs": 2.896013,
+          "state_mean_abs": 1.205473,
+          "state_max_abs": 2.896013,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_006.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1010107256,
+          "step_count": 274,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.65,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.805563,
+          "action_max_abs": 2.89601,
+          "state_mean_abs": 1.204735,
+          "state_max_abs": 2.89601,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_007.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1021166708,
+          "step_count": 277,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.8,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.810952,
+          "action_max_abs": 2.896007,
+          "state_mean_abs": 1.212795,
+          "state_max_abs": 2.896007,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_008.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 999047804,
+          "step_count": 271,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.5,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.807995,
+          "action_max_abs": 2.896004,
+          "state_mean_abs": 1.208281,
+          "state_max_abs": 2.896004,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_009.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1046972096,
+          "step_count": 284,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 14.15,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.811982,
+          "action_max_abs": 2.896001,
+          "state_mean_abs": 1.214481,
+          "state_max_abs": 2.896001,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_010.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 980615384,
+          "step_count": 266,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.25,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.805761,
+          "action_max_abs": 2.896008,
+          "state_mean_abs": 1.204781,
+          "state_max_abs": 2.896008,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_011.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1013793740,
+          "step_count": 275,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.7,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.810691,
+          "action_max_abs": 2.896006,
+          "state_mean_abs": 1.212289,
+          "state_max_abs": 2.896006,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_012.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 987988352,
+          "step_count": 268,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.35,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.807869,
+          "action_max_abs": 2.89601,
+          "state_mean_abs": 1.208017,
+          "state_max_abs": 2.89601,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_013.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 987988352,
+          "step_count": 268,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.35,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.804328,
+          "action_max_abs": 2.900409,
+          "state_mean_abs": 1.20271,
+          "state_max_abs": 2.900409,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_014.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 921631640,
+          "step_count": 250,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 12.45,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.790762,
+          "action_max_abs": 2.896013,
+          "state_mean_abs": 1.182031,
+          "state_max_abs": 2.896013,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_015.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1054345064,
+          "step_count": 286,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 14.25,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.815593,
+          "action_max_abs": 2.896004,
+          "state_mean_abs": 1.219847,
+          "state_max_abs": 2.896004,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_016.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 991674836,
+          "step_count": 269,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.4,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.805239,
+          "action_max_abs": 2.896006,
+          "state_mean_abs": 1.204105,
+          "state_max_abs": 2.896006,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_017.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 999047804,
+          "step_count": 271,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.5,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.805629,
+          "action_max_abs": 2.896006,
+          "state_mean_abs": 1.20477,
+          "state_max_abs": 2.896006,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_018.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1006420772,
+          "step_count": 273,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 13.6,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.808643,
+          "action_max_abs": 2.896011,
+          "state_mean_abs": 1.209293,
+          "state_max_abs": 2.896011,
+          "error": ""
+        },
+        {
+          "relative_path": "manipulation/place_the_meat_can_on_the_plate/episode_019.hdf5",
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "status": "available",
+          "file_size_bytes": 1069091000,
+          "step_count": 290,
+          "action_dim": 12,
+          "state_dim": 8,
+          "duration_sec": 14.45,
+          "image_views": [
+            "drone_rgb",
+            "perspective_rgb",
+            "side_rgb",
+            "wrist_rgb"
+          ],
+          "task_text": "place the meat can on the plate",
+          "finite_action": true,
+          "finite_state": true,
+          "action_mean_abs": 0.820422,
+          "action_max_abs": 2.896007,
+          "state_mean_abs": 1.227134,
+          "state_max_abs": 2.896007,
+          "error": ""
+        }
+      ],
+      "tasks": [
+        {
+          "task_key": "manipulation/place_the_meat_can_on_the_plate",
+          "episode_count": 20,
+          "valid_episode_count": 20,
+          "action_dim_set": [
+            12
+          ],
+          "state_dim_set": [
+            8
+          ]
+        }
+      ],
+      "training_claim_allowed": false,
+      "performance_claim_allowed": false,
+      "non_claims": [
+        "not AIR-VLA+ reproduction",
+        "not training evidence",
+        "not evaluator rollout",
+        "not task completion evidence",
+        "not paper-level performance evidence"
+      ]
+    },
+    "bc": {
+      "created_at": "2026-06-27T02:29:47.605615+00:00",
+      "truth_level": "air_vla_hdf5_bc_d0_smoke_no_performance_claim",
+      "status": "passed",
+      "hdf5_root": "/autodl-fs/data/work4_air_vla_hdf5",
+      "record_count": 20,
+      "train_record_count": 16,
+      "val_record_count": 4,
+      "feature_dim": 8,
+      "state_dim": 8,
+      "action_dim": 12,
+      "image_view_count": 4,
+      "device": "cuda",
+      "step_count": 1000,
+      "resume_step_count": 1100,
+      "checkpoint_reload_status": "passed",
+      "loss": {
+        "first_train": 1.5060021877288818,
+        "last_train": 0.00020374037558212876,
+        "last_before_resume": 0.00020740393665619195,
+        "val": 0.00020668117213062942
+      },
+      "inference": {
+        "episode_index": 0,
+        "action_dim": 12,
+        "action": [
+          0.001209,
+          -0.003196,
+          -0.000624,
+          -0.000518,
+          -0.801011,
+          -1.145105,
+          0.921716,
+          -2.631073,
+          -1.391863,
+          1.418834,
+          1.386048,
+          0.035004
+        ]
+      },
+      "outputs": {
+        "summary_json": "benchmark_swarm_rl/outputs/air_vla_hdf5_bc_cuda_20ep_1000step_server_20260627_102939/air_vla_hdf5_bc_smoke_summary.json",
+        "config_json": "benchmark_swarm_rl/outputs/air_vla_hdf5_bc_cuda_20ep_1000step_server_20260627_102939/config.json",
+        "loss_curve_csv": "benchmark_swarm_rl/outputs/air_vla_hdf5_bc_cuda_20ep_1000step_server_20260627_102939/loss_curve.csv",
+        "checkpoint": "benchmark_swarm_rl/outputs/air_vla_hdf5_bc_cuda_20ep_1000step_server_20260627_102939/checkpoints/step_1100.pt",
+        "inference_json": "benchmark_swarm_rl/outputs/air_vla_hdf5_bc_cuda_20ep_1000step_server_20260627_102939/inference.json",
+        "report_md": "benchmark_swarm_rl/outputs/air_vla_hdf5_bc_cuda_20ep_1000step_server_20260627_102939/air_vla_hdf5_bc_smoke_report.md"
+      },
+      "training_claim_allowed": false,
+      "performance_claim_allowed": false,
+      "non_claims": [
+        "not AIR-VLA+ reproduction",
+        "not official AIR-VLA training",
+        "not evaluator rollout",
+        "not task completion evidence",
+        "not paper-level performance evidence"
+      ]
+    },
+    "ef": {
+      "created_at": "2026-06-27T02:29:51.570804+00:00",
+      "truth_level": "ef_air_vla_d0_model_smoke_no_performance_claim",
+      "status": "passed",
+      "feedback_summary_path": "benchmark_swarm_rl/outputs/ef_air_vla_feedback_smoke_hold50_hdf5_server_20260627_021127/ef_air_vla_feedback_smoke_summary.json",
+      "record_count": 2,
+      "episodes": [
+        1,
+        2
+      ],
+      "feature_dim": 16,
+      "action_dim": 12,
+      "state_dim": 8,
+      "image_view_count": 4,
+      "device": "cuda",
+      "step_count": 500,
+      "resume_step_count": 600,
+      "checkpoint_reload_status": "passed",
+      "loss": {
+        "first": 1.3767039775848389,
+        "last": 2.3088938178261742e-05,
+        "last_before_resume": 2.373504321440123e-05
+      },
+      "inference": {
+        "episode": 1,
+        "action_dim": 12,
+        "action": [
+          0.001138,
+          -0.002704,
+          -0.001148,
+          -0.000161,
+          -0.821203,
+          -1.151934,
+          0.929511,
+          -2.615299,
+          -1.398344,
+          1.423114,
+          1.38803,
+          0.035606
+        ],
+        "feedback_prediction": [
+          0.354899
+        ]
+      },
+      "outputs": {
+        "summary_json": "benchmark_swarm_rl/outputs/ef_air_vla_d0_model_smoke_hold50_cuda_2row_500step_server_20260627_102939/ef_air_vla_d0_model_smoke_summary.json",
+        "config_json": "benchmark_swarm_rl/outputs/ef_air_vla_d0_model_smoke_hold50_cuda_2row_500step_server_20260627_102939/config.json",
+        "loss_curve_csv": "benchmark_swarm_rl/outputs/ef_air_vla_d0_model_smoke_hold50_cuda_2row_500step_server_20260627_102939/loss_curve.csv",
+        "checkpoint": "benchmark_swarm_rl/outputs/ef_air_vla_d0_model_smoke_hold50_cuda_2row_500step_server_20260627_102939/checkpoints/step_0600.pt",
+        "inference_json": "benchmark_swarm_rl/outputs/ef_air_vla_d0_model_smoke_hold50_cuda_2row_500step_server_20260627_102939/inference.json",
+        "report_md": "benchmark_swarm_rl/outputs/ef_air_vla_d0_model_smoke_hold50_cuda_2row_500step_server_20260627_102939/ef_air_vla_d0_model_smoke_report.md"
+      },
+      "training_claim_allowed": false,
+      "performance_claim_allowed": false,
+      "non_claims": [
+        "not AIR-VLA+ reproduction",
+        "not official AIR-VLA training",
+        "not evaluator rollout",
+        "not task completion evidence",
+        "not paper-level performance evidence"
+      ]
+    },
+    "public": {
+      "truth_level": "air_vla_plus_public_release_gate_no_training",
+      "status": "blocked_wait_for_public_assets",
+      "issues": [
+        "missing_training_code",
+        "missing_policy_inference_code",
+        "missing_checkpoint_or_weight_candidate",
+        "no_new_public_release_signal"
+      ],
+      "checks": {
+        "remote_head": "1176e04bfa7278e6402b019eec6a644336c67c16",
+        "baseline_head": "1176e04bfa7278e6402b019eec6a644336c67c16",
+        "remote_head_changed": false,
+        "repo_file_count": 9,
+        "has_training_code": false,
+        "has_policy_inference_code": false,
+        "has_checkpoint_or_weight_candidate": false,
+        "has_hf_model_candidate": false,
+        "has_release_or_tag": false,
+        "release_count": 0,
+        "tag_count": 0
+      },
+      "training_files": [],
+      "policy_inference_files": [],
+      "checkpoint_or_weight_files": [],
+      "hf_model_ids": [],
+      "release_names": [],
+      "tag_names": [],
+      "readiness_audit_should_run": false,
+      "long_server_run_allowed": false,
+      "next_action": "continue release monitoring and do not start long server training",
+      "created_at": "2026-06-27T02:33:33.788370+00:00",
+      "sources": {
+        "github_repo": "https://github.com/SpencerSon2001/AIR-VLA",
+        "github_tree_api": "https://api.github.com/repos/SpencerSon2001/AIR-VLA/git/trees/main?recursive=1",
+        "github_releases_api": "https://api.github.com/repos/SpencerSon2001/AIR-VLA/releases",
+        "github_tags_api": "https://api.github.com/repos/SpencerSon2001/AIR-VLA/tags",
+        "hf_model_search_api": "https://huggingface.co/api/models?search=AIR-VLA&limit=50"
+      },
+      "fetch_errors": [
+        "https://huggingface.co/api/models?search=AIR-VLA&limit=50: URLError: <urlopen error [Errno 101] Network is unreachable>"
+      ]
+    },
+    "readiness": {
+      "created_at": "2026-06-27T02:33:33.911709+00:00",
+      "truth_level": "air_vla_full_reproduction_readiness_audit_no_training",
+      "status": "blocked_full_algorithm_reproduction",
+      "issues": [
+        "dataset_episode_count_below_minimum:20<1000",
+        "evaluator_task_count_below_minimum:1<4",
+        "missing_training_code",
+        "missing_policy_inference_server",
+        "missing_pretrained_or_trained_checkpoint"
+      ],
+      "checks": {
+        "official_repo_present": true,
+        "has_evaluator": true,
+        "has_hdf5_converter": true,
+        "has_teleop_recorder": true,
+        "has_environment_usd": true,
+        "isaac_python_available": true,
+        "dataset_root_available": true,
+        "dataset_episode_count": 20,
+        "dataset_task_count": 1,
+        "dataset_total_gib": 18.845614,
+        "min_dataset_episodes": 1000,
+        "evaluator_task_count": 1,
+        "min_evaluator_tasks": 4,
+        "has_training_code": false,
+        "has_policy_inference_server": false,
+        "has_checkpoint_or_weights": false,
+        "isaac_assets_available": true
+      },
+      "air_vla_repo": "external_src/AIR-VLA",
+      "isaac_python": "/root/shared-nvme/work4/envs/isaacsim_500_py311/bin/python3.11",
+      "dataset_root": "/autodl-fs/data/work4_air_vla_hdf5",
+      "dataset_episode_count": 20,
+      "dataset_total_bytes": 20235323476,
+      "dataset_total_gib": 18.845614,
+      "dataset_task_count": 1,
+      "dataset_tasks": [
+        "manipulation/place_the_meat_can_on_the_plate"
+      ],
+      "evaluator_tasks": [
+        {
+          "cmd": "place_the_meat_can_on_the_plate",
+          "usd": "manipulation.usd",
+          "group": "manipulation"
+        }
+      ],
+      "training_files": [],
+      "policy_inference_files": [],
+      "checkpoint_or_weight_files": [],
+      "source_files_scanned": 10,
+      "performance_claim_allowed": false,
+      "training_claim_allowed": false,
+      "next_action": "obtain or implement the official training code, policy inference server, checkpoint path, and full dataset before claiming AIR-VLA algorithm reproduction"
+    },
+    "official_evaluator": {
+      "updated_at": "2026-06-27T02:41:22.417915+00:00",
+      "status": "finished",
+      "batch_root": "benchmark_swarm_rl/outputs/air_vla_official_evaluator_policy_side_original_assets_goal_20260627_103541",
+      "task_cmd": "place_the_meat_can_on_the_plate",
+      "episode_count_per_evaluator_run": 1,
+      "reconnect_server_per_episode": true,
+      "row": {
+        "label": "official_evaluator_policy_side_original_assets",
+        "method_name": "AIR-VLA-official-evaluator-policy-side-original-assets",
+        "status": "real_model_evaluator_failed",
+        "return_code": "-11",
+        "audit_return_code": "1",
+        "elapsed_seconds": "340.893",
+        "run_dir": "air_vla_official_evaluator_policy_side_original_assets_goal_20260627_103541/official_evaluator_policy_side_original_assets",
+        "run_summary": "air_vla_official_evaluator_policy_side_original_assets_goal_20260627_103541/official_evaluator_policy_side_original_assets/real_eval_run/air_vla_real_model_eval_run_summary.json",
+        "audit_summary": "air_vla_official_evaluator_policy_side_original_assets_goal_20260627_103541/official_evaluator_policy_side_original_assets/result_audit/air_vla_real_model_eval_result_audit_summary.json",
+        "result_file_count": "0"
+      },
+      "artifact_completeness": [
+        {
+          "label": "official_evaluator_policy_side_original_assets",
+          "missing": [
+            "episode_1.jpg",
+            "episode_1.mp4",
+            "episode_1_diagnostics.json",
+            "episode_2.jpg",
+            "episode_2.mp4",
+            "episode_2_diagnostics.json",
+            "episode_results.csv",
+            "group_summary.json",
+            "task_summary.json"
+          ],
+          "artifact_complete": false
+        }
+      ],
+      "performance_claim_allowed": false,
+      "training_claim_allowed": false
+    }
+  },
+  "references": [
+    {
+      "label": "Academic Project Page Template",
+      "url": "https://github.com/eliahuhorwitz/Academic-project-page-template"
+    },
+    {
+      "label": "AirVLA project page",
+      "url": "https://air-vla.github.io/"
+    },
+    {
+      "label": "Nerfies project page grammar",
+      "url": "https://nerfies.github.io/"
+    }
+  ]
+}
