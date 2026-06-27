@@ -16,5 +16,5 @@ The page does not claim AIR-VLA+ reproduction, official AIR-VLA training, learne
 Design references:
 
 - Academic Project Page Template: https://github.com/eliahuhorwitz/Academic-project-page-template
-- AirVLA project page: https://air-vla.github.io/
+- AirVLA project page: https://airvla.github.io/
 - Nerfies project page grammar: https://nerfies.github.io/
