@@ -57,6 +57,16 @@ CLIPS = [
         "video": "d7_release22_episode_2_loop4s.mp4",
         "gif": "d7_release22_episode_2_loop4s.gif",
     },
+    {
+        "source": "d8_reset_normalized_episode_2.mp4",
+        "video": "d8_reset_normalized_episode_2_loop4s.mp4",
+        "gif": "d8_reset_normalized_episode_2_loop4s.gif",
+    },
+    {
+        "source": "d9_close050_070_episode_2.mp4",
+        "video": "d9_close050_070_episode_2_loop4s.mp4",
+        "gif": "d9_close050_070_episode_2_loop4s.gif",
+    },
 ]
 
 

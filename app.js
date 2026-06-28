@@ -421,7 +421,20 @@ function episodeText(episode) {
 }
 
 function renderCandidateIterations(data) {
-  const promoted = new Set(["AB", "D1-20", "D2-5", "D3-20", "D4-5", "D5-5", "D5-20", "D6-5", "D7-5"]);
+  const promoted = new Set([
+    "AB",
+    "D1-20",
+    "D2-5",
+    "D3-20",
+    "D4-5",
+    "D5-5",
+    "D5-20",
+    "D6-5",
+    "D7-5",
+    "D8-5",
+    "D9-050",
+    "D10",
+  ]);
   const rows = data.iterations.filter((item) => promoted.has(item.id) || item.id === "AB");
   const cards = rows.map((item) => {
     const metrics = item.metrics || {};

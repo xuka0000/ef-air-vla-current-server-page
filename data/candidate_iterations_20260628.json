@@ -1,6 +1,6 @@
 {
   "truth_level": "air_vla_candidate_iteration_process_no_performance_claim",
-  "updated_at": "2026-06-28",
+  "updated_at": "2026-06-28T13:57:58.826944+00:00",
   "source_note": "All rows are small-scale Work4 AIR-VLA D0 engineering diagnostics. They are not AIR-VLA+ reproduction or paper-level performance claims.",
   "metric_columns": [
     "episode_count",
@@ -334,20 +334,122 @@
       "media_status": "5 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop.",
       "decision": "reject simple release delay because it destroys the D5 approach score and keeps completion at zero",
       "boundary": "negative 5-episode diagnostic; useful for excluding release-delay-only repair"
+    },
+    {
+      "id": "D8-5",
+      "label": "D8 reset-normalized D5 timing 5ep",
+      "role": "negative reset-state normalization diagnostic",
+      "hypothesis": "Normalizing robot actuation state after the final object reset may remove the periodic D5 failure without changing D5 policy timing.",
+      "mechanism_source": "D5-20 failures repeated every four episodes, while D6 post-open freeze and D7 release delay both destroyed the D5 success path.",
+      "status": "rejected",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 0.0,
+        "arm_score_mean": 9.64,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 19.64,
+        "total_score_min": 18.3,
+        "total_score_max": 25.0
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d8_reset_normalized_d5_timing_5ep_20260628_190000/air_vla_candidate_d8_reset_normalized_d5_timing_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop from episode 2.",
+      "decision": "reject reset-state normalization because it collapses UAV score to zero and gives no completion",
+      "boundary": "negative 5-episode diagnostic; useful for excluding evaluator reset normalization as the next repair direction"
+    },
+    {
+      "id": "D9-055",
+      "label": "D9 close 0.55-0.75 D5 timing 5ep",
+      "role": "negative close-window ablation",
+      "hypothesis": "Changing close gate bounds around the D5 policy may recover near-threshold misses without changing release, lift, or standoff transfer.",
+      "mechanism_source": "D8 rejected reset-state normalization. D9 returns to D5 timing and changes only close gate bounds.",
+      "status": "rejected",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 3.44,
+        "arm_score_mean": 8.568000000000001,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 22.008000000000003,
+        "total_score_min": 18.71,
+        "total_score_max": 35.2
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d9_close_window_sweep_5ep_20260628_203000/d9_close055_075_d5_timing_5ep/real_eval_run/air_vla_real_model_eval_run_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop for the best D9 variant only.",
+      "decision": "reject because completion remains zero and UAV score collapses after episode 1",
+      "boundary": "negative 5-episode diagnostic; no AIR-VLA+ reproduction, official training, learned-policy, robust completion, hardware, sim-to-real, or paper-level performance claim"
+    },
+    {
+      "id": "D9-050",
+      "label": "D9 close 0.50-0.70 D5 timing 5ep",
+      "role": "best close-window ablation but still negative",
+      "hypothesis": "Changing close gate bounds around the D5 policy may recover near-threshold misses without changing release, lift, or standoff transfer.",
+      "mechanism_source": "D8 rejected reset-state normalization. D9 returns to D5 timing and changes only close gate bounds.",
+      "status": "rejected",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 17.778,
+        "arm_score_mean": 8.921999999999999,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 36.708,
+        "total_score_min": 35.1,
+        "total_score_max": 37.11
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d9_close_window_sweep_5ep_20260628_203000/d9_close050_070_d5_timing_5ep/real_eval_run/air_vla_real_model_eval_run_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop for the best D9 variant only.",
+      "decision": "reject as a promoted branch because no episode completes and total remains below D5 and D3",
+      "boundary": "negative 5-episode diagnostic; no AIR-VLA+ reproduction, official training, learned-policy, robust completion, hardware, sim-to-real, or paper-level performance claim"
+    },
+    {
+      "id": "D9-045",
+      "label": "D9 close 0.45-0.75 D5 timing 5ep",
+      "role": "negative low-bound close-window ablation",
+      "hypothesis": "Changing close gate bounds around the D5 policy may recover near-threshold misses without changing release, lift, or standoff transfer.",
+      "mechanism_source": "D8 rejected reset-state normalization. D9 returns to D5 timing and changes only close gate bounds.",
+      "status": "rejected",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 3.44,
+        "arm_score_mean": 8.568000000000001,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 22.008000000000003,
+        "total_score_min": 18.71,
+        "total_score_max": 35.2
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d9_close_window_sweep_5ep_20260628_203000/d9_close045_075_d5_timing_5ep/real_eval_run/air_vla_real_model_eval_run_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop for the best D9 variant only.",
+      "decision": "reject because it matches the D9 0.55-0.75 failure pattern",
+      "boundary": "negative 5-episode diagnostic; no AIR-VLA+ reproduction, official training, learned-policy, robust completion, hardware, sim-to-real, or paper-level performance claim"
+    },
+    {
+      "id": "D10",
+      "label": "online feedback field audit",
+      "role": "request-schema diagnostic",
+      "hypothesis": "D9 showed that close-window tuning cannot recover completion. The next repair should verify whether object-relative release or contact-state feedback is available online before another server rollout.",
+      "mechanism_source": "Static analysis of the static-support evaluator request payload plus D5 success, D5 failure, and D9 best-row diagnostic JSON files.",
+      "status": "blocked",
+      "episode_count": 0,
+      "metrics": {},
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d10_feedback_field_audit_20260628/air_vla_d10_feedback_field_audit_20260628.json",
+      "media_status": "No remote media because D10 stops at the local field gate.",
+      "decision": "do not launch an online object-feedback policy until the evaluator request payload exposes object or contact fields",
+      "boundary": "The evaluator writes object geometry into rollout diagnostics, but the policy request contains only images, prompt, and robot state. This is a no-go for a new online object-feedback policy without a payload-extension smoke test."
     }
   ],
   "next_queue": [
     {
-      "id": "D8",
-      "label": "reset-state normalization without post-open freeze",
-      "hypothesis": "D6 and D7 show that post-open freezing and release delay both destroy D5 success paths. The next repair should normalize or reinitialize episode state before rollout while keeping the D5 timing mechanism unchanged.",
-      "planned_ablation": "Run a reset-state probe or evaluator-state normalization branch before touching D5 gripper timing again."
+      "id": "D10",
+      "label": "online feedback field audit completed",
+      "hypothesis": "The current evaluator request does not expose object or contact feedback to the policy server.",
+      "planned_ablation": "Do not run another timing sweep. Treat D10 as a field-gate result and design a request-payload extension before any online object-feedback rollout."
     },
     {
-      "id": "D9",
-      "label": "narrow close-window sweep around D5",
-      "hypothesis": "If reset-state repair is not enough, the remaining near-threshold miss may require a smaller close-window change rather than release timing changes.",
-      "planned_ablation": "Sweep close gate bounds around the current D5 values while preserving D5 release and lift settings."
+      "id": "D11",
+      "label": "evaluator request payload extension smoke",
+      "hypothesis": "A legal evaluator-side request extension should pass object pose, container pose, end-effector pose, UAV pose, gripper state, and task phase to the policy server without changing score calculation.",
+      "planned_ablation": "Write tests for payload schema and a one-episode smoke or 5-episode gate only after the payload extension is verified locally."
     }
   ],
   "non_claims": [
@@ -487,10 +589,42 @@
         "total_score": 24.36,
         "completion_score": 0.0,
         "caption": "D7 release delay. It improves arm score slightly but loses UAV score entirely, so it is rejected."
+      },
+      {
+        "run_id": "D8-5",
+        "episode": 2,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d8_reset_normalized_episode_2_loop4s.gif",
+        "video_path": "assets/videos/d8_reset_normalized_episode_2_loop4s.mp4",
+        "source_video_path": "assets/videos/d8_reset_normalized_episode_2.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 18.3,
+        "completion_score": 0.0,
+        "caption": "D8 reset-state normalization. It preserves D5 timing but collapses UAV score and gives no completion, so it is rejected."
+      },
+      {
+        "run_id": "D9-050",
+        "episode": 2,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d9_close050_070_episode_2_loop4s.gif",
+        "video_path": "assets/videos/d9_close050_070_episode_2_loop4s.mp4",
+        "source_video_path": "assets/videos/d9_close050_070_episode_2.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 37.11,
+        "completion_score": 0.0,
+        "caption": "D9 best close-window row. It keeps UAV and arm scores near 37 total but gives no completion, so it is not promoted."
       }
     ],
     "video_status_counts": {
-      "nonzero_duration": 135
-    }
+      "nonzero_duration": 155
+    },
+    "d10_feedback_audit_json": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d10_feedback_field_audit_20260628/air_vla_d10_feedback_field_audit_20260628.json",
+    "d10_feedback_diagnostic_csv": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d10_feedback_field_audit_20260628/air_vla_d10_feedback_diagnostic_rows_20260628.csv"
   }
 }
