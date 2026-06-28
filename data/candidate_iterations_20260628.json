@@ -1,0 +1,311 @@
+{
+  "truth_level": "air_vla_candidate_iteration_process_no_performance_claim",
+  "updated_at": "2026-06-28",
+  "source_note": "All rows are small-scale Work4 AIR-VLA D0 engineering diagnostics. They are not AIR-VLA+ reproduction or paper-level performance claims.",
+  "metric_columns": [
+    "episode_count",
+    "uav_score_mean",
+    "arm_score_mean",
+    "safety_score_mean",
+    "completion_score_mean",
+    "total_score_mean",
+    "total_score_min",
+    "total_score_max"
+  ],
+  "iterations": [
+    {
+      "id": "A",
+      "label": "ef_resmove",
+      "role": "movement baseline",
+      "hypothesis": "Target-conditioned residual movement should improve short-horizon UAV approach.",
+      "mechanism_source": "A/B/C 2-episode gate and 20-episode A comparison",
+      "status": "passed",
+      "episode_count": 20,
+      "metrics": {
+        "uav_score_mean": 11.9965,
+        "arm_score_mean": 0.0,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 21.9965,
+        "total_score_min": 21.99,
+        "total_score_max": 22.12
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_a_ef_resmove_20ep_20260628_041707_remote/air_vla_candidate_a_ef_resmove_20ep_summary.json",
+      "media_status": "local output videos exist under the source result directory",
+      "decision": "retain as stable movement baseline",
+      "boundary": "no arm signal and no completion signal"
+    },
+    {
+      "id": "B",
+      "label": "phase_hybrid_early_close",
+      "role": "arm-signal diagnostic",
+      "hypothesis": "Early phase closure and arm hold should expose manipulation-side signal.",
+      "mechanism_source": "A/B/C 2-episode gate showed B needed close timing inside the 20-step cap",
+      "status": "passed",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 0.0,
+        "arm_score_mean": 6.59,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 16.59,
+        "total_score_min": 16.59,
+        "total_score_max": 16.59
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_bearly_5ep_20260628_103735_remote/air_vla_candidate_bearly_5ep_summary.json",
+      "media_status": "local output videos exist under the source result directory",
+      "decision": "retain as arm diagnostic, not standalone method",
+      "boundary": "no UAV signal and no completion signal"
+    },
+    {
+      "id": "C",
+      "label": "mini_dual_head",
+      "role": "unsupported ablation",
+      "hypothesis": "Movement smoothing and replay stitching may stabilize action chunks.",
+      "mechanism_source": "A/B/C initial candidate set",
+      "status": "passed",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 0.0,
+        "arm_score_mean": 0.0,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 10.0,
+        "total_score_min": 10.0,
+        "total_score_max": 10.0
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_c_mini_dual_head_5ep_20260628_033538_remote/air_vla_candidate_c_mini_dual_head_5ep_summary.json",
+      "media_status": "local output videos exist under the source result directory",
+      "decision": "hold unless redesigned",
+      "boundary": "safety-only result"
+    },
+    {
+      "id": "AB",
+      "label": "ef_resmove_phase",
+      "role": "current promoted engineering candidate",
+      "hypothesis": "Movement residual and phase control are complementary and should increase total engineering score.",
+      "mechanism_source": "A had UAV signal and B had arm signal under separate gates",
+      "status": "passed",
+      "episode_count": 20,
+      "metrics": {
+        "uav_score_mean": 10.8395,
+        "arm_score_mean": 5.81,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 26.6495,
+        "total_score_min": 15.81,
+        "total_score_max": 27.22
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_ab_fusion_20ep_20260628_034556_remote/air_vla_candidate_ab_fusion_20ep_summary.json",
+      "media_status": "local output videos exist under the source result directory",
+      "decision": "promote to state-gated repair branch",
+      "boundary": "no completion signal and first episode loses UAV signal"
+    },
+    {
+      "id": "AB-crash",
+      "label": "ef_resmove_phase_first_attempt",
+      "role": "runtime instability record",
+      "hypothesis": "The same A+B policy should run through the evaluator.",
+      "mechanism_source": "First A+B 2-episode attempt",
+      "status": "blocked",
+      "episode_count": 0,
+      "metrics": {},
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_ab_fusion_2ep_20260628_104745_remote/air_vla_candidate_ab_fusion_2ep_summary.json",
+      "media_status": "no media because evaluator crashed before episode output",
+      "decision": "retain as evaluator runtime warning",
+      "boundary": "not an algorithm score"
+    },
+    {
+      "id": "D1-5",
+      "label": "ef_resmove_state_gate_speed005",
+      "role": "state-gated closure diagnostic",
+      "hypothesis": "Closing only after the estimated UAV-target distance enters the evaluator scoring band should remove premature action frames while preserving arm signal.",
+      "mechanism_source": "Evaluator scoring code marks action frames only when gripper state changes inside the 0.5 to 0.8 m UAV-target band.",
+      "status": "passed",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 21.31,
+        "arm_score_mean": 9.097999999999999,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 40.408,
+        "total_score_min": 40.27,
+        "total_score_max": 40.96
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d1_state_gate_speed005_5ep_20260628_135500_remote/air_vla_candidate_d1_state_gate_speed005_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally and verified as nonzero duration",
+      "decision": "promote to 20-episode stability check",
+      "boundary": "no completion signal at speed 0.05"
+    },
+    {
+      "id": "D1-20",
+      "label": "ef_resmove_state_gate_speed005",
+      "role": "state-gated closure stability check",
+      "hypothesis": "The D1 gain should persist beyond the 5-episode gate.",
+      "mechanism_source": "D1 5-episode result restored UAV and arm signals relative to AB timed close.",
+      "status": "passed",
+      "episode_count": 20,
+      "metrics": {
+        "uav_score_mean": 21.189999999999998,
+        "arm_score_mean": 9.1145,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 40.304500000000004,
+        "total_score_min": 40.27,
+        "total_score_max": 40.96
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d1_state_gate_speed005_20ep_20260628_142500_remote/air_vla_candidate_d1_state_gate_speed005_20ep_summary.json",
+      "media_status": "20 evaluator videos synchronized locally and verified as nonzero duration",
+      "decision": "retain as stable non-completion baseline for state-gated close",
+      "boundary": "strong total score but still no completion"
+    },
+    {
+      "id": "D2-5",
+      "label": "ef_resmove_state_gate_nohold_speed005",
+      "role": "request-state arm hold ablation",
+      "hypothesis": "Removing request-state arm hold tests whether D1 gains come from the state gate or from holding evaluator-reported arm state.",
+      "mechanism_source": "D1 combines gated close and request-state arm hold after close.",
+      "status": "passed",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 20.512,
+        "arm_score_mean": 9.097999999999999,
+        "safety_score_mean": 9.994,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 39.602000000000004,
+        "total_score_min": 36.93,
+        "total_score_max": 40.27
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d2_state_gate_nohold_speed005_5ep_20260628_145500_remote/air_vla_candidate_d2_state_gate_nohold_speed005_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally and verified as nonzero duration",
+      "decision": "do not treat request-state hold as the main source of gain",
+      "boundary": "slightly lower total and no completion"
+    },
+    {
+      "id": "D3-5",
+      "label": "ef_resmove_state_gate_speed004",
+      "role": "approach-speed ablation",
+      "hypothesis": "A slower state-gated approach may align object interaction better than D1 speed 0.05.",
+      "mechanism_source": "Local gate simulation showed speed 0.04 delays close after six suppressed frames and six gated close frames.",
+      "status": "passed",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 20.346,
+        "arm_score_mean": 10.706,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 8.0,
+        "total_score_mean": 49.058,
+        "total_score_min": 37.07,
+        "total_score_max": 95.0
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d3_state_gate_speed004_5ep_20260628_151000_remote/air_vla_candidate_d3_state_gate_speed004_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally and verified as nonzero duration",
+      "decision": "promote because one episode reached completion and total score 95",
+      "boundary": "high variance across episodes"
+    },
+    {
+      "id": "D3-20",
+      "label": "ef_resmove_state_gate_speed004",
+      "role": "approach-speed stability check",
+      "hypothesis": "The D3 completion event should be tested over 20 episodes before any stronger claim.",
+      "mechanism_source": "D3 5-episode gate produced a completion episode whereas D1 did not.",
+      "status": "passed",
+      "episode_count": 20,
+      "metrics": {
+        "uav_score_mean": 19.269,
+        "arm_score_mean": 9.291500000000001,
+        "safety_score_mean": 10.0,
+        "completion_score_mean": 2.0,
+        "total_score_mean": 40.569500000000005,
+        "total_score_min": 37.07,
+        "total_score_max": 95.0
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d3_state_gate_speed004_20ep_20260628_152000_remote/air_vla_candidate_d3_state_gate_speed004_20ep_summary.json",
+      "media_status": "20 evaluator videos synchronized locally and verified as nonzero duration",
+      "decision": "promote the speed 0.04 gated branch as the next algorithm-design seed",
+      "boundary": "only 1 of 20 episodes completed, so it is not a robust success claim"
+    }
+  ],
+  "next_queue": [
+    {
+      "id": "D4",
+      "label": "state-gated speed004 placement repair",
+      "hypothesis": "The remaining failure is not approach scoring but unreliable object placement, so the next branch should add a post-close hold, lift, and container-transfer schedule while preserving D3 close timing.",
+      "planned_ablation": "Compare D3 against D4 over 5 episodes first, then only promote if completion count increases without lowering safety."
+    },
+    {
+      "id": "D5",
+      "label": "gate-window sweep",
+      "hypothesis": "The 0.5 to 0.8 m action gate is evaluator-aligned, but the best trigger point may be nearer 0.65 m for object interaction.",
+      "planned_ablation": "Sweep close_gate_min_distance and close_gate_max_distance around 0.6 to 0.75 under 5 episodes."
+    }
+  ],
+  "non_claims": [
+    "not AIR-VLA+ reproduction",
+    "not official AIR-VLA training",
+    "not learned-policy superiority",
+    "not task-completion evidence",
+    "not hardware validation",
+    "not sim-to-real evidence",
+    "not paper-level performance"
+  ],
+  "analysis_outputs": {
+    "metrics_csv": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_iteration_analysis_20260628/candidate_iteration_metrics_20260628.csv",
+    "episode_rows_csv": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_iteration_analysis_20260628/candidate_iteration_episode_rows_20260628.csv",
+    "video_inventory_csv": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_iteration_analysis_20260628/candidate_iteration_video_inventory_20260628.csv",
+    "plots": [
+      "assets/images/candidate_metric_bars_20260628.png",
+      "assets/images/candidate_episode_curves_20260628.png"
+    ],
+    "media": [
+      {
+        "run_id": "AB20",
+        "episode": 2,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/ab_timed_phase_episode_2_loop4s.gif",
+        "video_path": "assets/videos/ab_timed_phase_episode_2_loop4s.mp4",
+        "source_video_path": "assets/videos/ab_timed_phase_episode_2.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 27.22,
+        "completion_score": 0.0,
+        "caption": "Timed A+B branch. It keeps arm signal but does not complete."
+      },
+      {
+        "run_id": "D1-20",
+        "episode": 1,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d1_state_gate_speed005_episode_1_loop4s.gif",
+        "video_path": "assets/videos/d1_state_gate_speed005_episode_1_loop4s.mp4",
+        "source_video_path": "assets/videos/d1_state_gate_speed005_episode_1.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 40.96,
+        "completion_score": 0.0,
+        "caption": "State-gated close at speed 0.05. It restores UAV and arm scores."
+      },
+      {
+        "run_id": "D3-20",
+        "episode": 1,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d3_state_gate_speed004_episode_1_loop4s.gif",
+        "video_path": "assets/videos/d3_state_gate_speed004_episode_1_loop4s.mp4",
+        "source_video_path": "assets/videos/d3_state_gate_speed004_episode_1.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 95.0,
+        "completion_score": 40.0,
+        "caption": "Slower state gate at speed 0.04. This is the only completed diagnostic episode in the 20-episode D3 set."
+      }
+    ],
+    "video_status_counts": {
+      "nonzero_duration": 95
+    }
+  }
+}

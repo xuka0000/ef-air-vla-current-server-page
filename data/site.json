@@ -1,7 +1,7 @@
 {
   "title": "Execution-Feedback AIR-VLA Current Server Evidence",
   "subtitle": "A bounded AIR-VLA and EF-AIR-VLA D0-D1 project page from the Work4 RTX5090 server sweep",
-  "updated_at": "2026-06-27",
+  "updated_at": "2026-06-28",
   "truth_level": "air_vla_current_server_d0_d1_goal_sweep_no_performance_claim",
   "assets": {
     "bc_loss": {
@@ -848,5 +848,19 @@
       "label": "Nerfies project page grammar",
       "url": "https://nerfies.github.io/"
     }
-  ]
+  ],
+  "candidate_iteration_source": "data/candidate_iterations_20260628.json",
+  "candidate_video_check": {
+    "video_count": 95,
+    "duration_status": "all_nonzero_duration_by_opencv",
+    "duration_min_seconds": 0.8,
+    "duration_max_seconds": 2.0,
+    "duration_mean_seconds": 1.97473684210526,
+    "display_clip_count": 3,
+    "display_duration_status": "three homepage display clips looped to 4.0 seconds from real evaluator frames",
+    "display_duration_seconds": 4.0,
+    "display_frame_count": 40,
+    "display_fps": 10.0,
+    "source_csv": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_iteration_analysis_20260628/candidate_iteration_video_inventory_20260628.csv"
+  }
 }

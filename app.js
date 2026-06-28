@@ -6,6 +6,14 @@ async function loadSiteData() {
   return response.json();
 }
 
+async function loadCandidateData() {
+  const response = await fetch("data/candidate_iterations_20260628.json");
+  if (!response.ok) {
+    throw new Error(`Unable to load candidate data: ${response.status}`);
+  }
+  return response.json();
+}
+
 function card({ status, title, value, detail }) {
   const className = status === "PASS" ? "metric-card pass" : "metric-card blocked";
   return `
@@ -68,9 +76,77 @@ function renderResults(data) {
   document.getElementById("result-grid").innerHTML = rows.map(card).join("");
 }
 
-loadSiteData().then(renderResults).catch((error) => {
+function numberText(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) {
+    return "NA";
+  }
+  return number.toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
+}
+
+function metricTile(label, value) {
+  return `<span><em>${label}</em>${numberText(value)}</span>`;
+}
+
+function renderCandidateIterations(data) {
+  const promoted = new Set(["AB", "D1-20", "D2-5", "D3-20"]);
+  const rows = data.iterations.filter((item) => promoted.has(item.id) || item.id === "AB");
+  const cards = rows.map((item) => {
+    const metrics = item.metrics || {};
+    return `
+      <article class="candidate-card">
+        <div class="candidate-topline">
+          <span>${item.id}</span>
+          <strong>${item.label}</strong>
+        </div>
+        <p class="candidate-role">${item.role}</p>
+        <div class="candidate-metrics">
+          ${metricTile("Total", metrics.total_score_mean)}
+          ${metricTile("UAV", metrics.uav_score_mean)}
+          ${metricTile("Arm", metrics.arm_score_mean)}
+          ${metricTile("Completion", metrics.completion_score_mean)}
+        </div>
+        <p class="candidate-decision">${item.decision}</p>
+        <details class="candidate-details">
+          <summary>Rationale and boundary</summary>
+          <p>${item.hypothesis}</p>
+          <p>${item.mechanism_source}</p>
+          <p>${item.boundary}</p>
+          <a href="${item.source_summary}">Source summary</a>
+        </details>
+      </article>
+    `;
+  });
+  document.getElementById("candidate-grid").innerHTML = cards.join("");
+
+  const media = (data.analysis_outputs?.media || []).filter((item) => item.display === true);
+  document.getElementById("candidate-media").innerHTML = media.map((item) => `
+    <figure class="media-card candidate-clip">
+      <img src="${item.display_path}" alt="${item.caption}">
+      <figcaption><strong>${item.run_id} episode ${item.episode}</strong>${item.caption}</figcaption>
+      <div class="media-meta">
+        <span>${numberText(item.duration_sec)} s</span>
+        <span>${item.frame_count} frames</span>
+        <span>Total ${numberText(item.total_score)}</span>
+        <span>Completion ${numberText(item.completion_score)}</span>
+      </div>
+      <div class="media-actions">
+        <a href="${item.video_path}">MP4</a>
+      </div>
+    </figure>
+  `).join("");
+}
+
+Promise.all([loadSiteData(), loadCandidateData()]).then(([siteData, candidateData]) => {
+  renderResults(siteData);
+  renderCandidateIterations(candidateData);
+}).catch((error) => {
   const target = document.getElementById("result-grid");
   if (target) {
     target.innerHTML = `<article class="metric-card blocked"><span class="status">BLOCKED</span><h3>Data load</h3><strong>Error</strong><p>${error.message}</p></article>`;
+  }
+  const candidateTarget = document.getElementById("candidate-grid");
+  if (candidateTarget) {
+    candidateTarget.innerHTML = `<article class="candidate-card"><strong>Data load error</strong><p>${error.message}</p></article>`;
   }
 });

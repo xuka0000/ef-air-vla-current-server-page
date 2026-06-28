@@ -13,13 +13,14 @@
         <a href="#abstract">Abstract</a>
         <a href="#method">Method</a>
         <a href="#results">Results</a>
+        <a href="#candidate-process">Iterations</a>
         <a href="#media">Media</a>
         <a href="#evidence">Evidence</a>
       </nav>
       <div class="hero-inner">
         <p class="eyebrow">Work4 RTX5090 server sweep</p>
         <h1>Execution-Feedback AIR-VLA Current Server Evidence</h1>
-        <p class="subtitle">A bounded AIR-VLA and EF-AIR-VLA D0-D1 project page built from real server logs, checkpoints, JSON summaries, loss curves, and complete evaluator diagnostic media.</p>
+        <p class="subtitle">A bounded AIR-VLA and EF-AIR-VLA project page built from real server logs, metric tables, loss curves, and evaluator rollout media.</p>
         <div class="authors">Work4 embodied aerial manipulation study</div>
         <div class="button-row">
           <a class="button primary" href="data/site.json">Evidence JSON</a>
@@ -46,10 +47,10 @@
       <section id="abstract" class="section narrow">
         <h2>Abstract</h2>
         <p>
-          This page summarizes the current Work4 RTX5090 server evidence for AIR-VLA and the proposed Execution-Feedback AIR-VLA direction. The server can run D0-D1 smoke checks over the available AIR-VLA HDF5 subset. The HDF5 audit passed for 20 files, the HDF5-only CUDA BC smoke passed over all 20 episodes, and the EF-AIR-VLA CUDA smoke passed over the two real feedback rows currently available.
+          This page records the current Work4 server evidence for AIR-VLA reproduction and Execution-Feedback AIR-VLA design. The HDF5 audit, BC smoke, feedback smoke, evaluator diagnostics, and D1 to D3 candidate runs are all linked to local artifacts.
         </p>
         <p>
-          The same sweep shows why complete reproduction is not ready. Public assets still lack training code, a policy inference server, and checkpoint weights. The current dataset has 20 episodes and one evaluator task. The official original evaluator returned code -11 and produced no rollout artifacts. The page therefore reports server readiness and reproduction friction only.
+          The current result is an engineering diagnostic rather than a performance claim. Official training code, policy inference assets, checkpoints, broad data coverage, and a stable full evaluator are still missing.
         </p>
       </section>
 
@@ -93,6 +94,48 @@
         <div class="result-grid" id="result-grid" aria-live="polite"></div>
       </section>
 
+      <section id="candidate-process" class="section">
+        <div class="section-head">
+          <h2>State-Gated Candidate Iterations</h2>
+          <p>Small-scale AIR-VLA diagnostics show that action timing and UAV-target distance must be coupled before placement repair can be meaningful.</p>
+        </div>
+        <div class="iteration-spotlight">
+          <figure class="spotlight-media">
+            <img src="assets/images/d3_state_gate_speed004_episode_1_loop4s.gif" alt="D3 state-gated speed 0.04 episode with completion signal">
+            <figcaption>D3 state gate, speed 0.04. The best diagnostic episode reached total 95 and completion 40. The 20-episode completion rate is still 1 of 20.</figcaption>
+          </figure>
+          <div class="equation-panel">
+            <h3>Model Expression</h3>
+            <div class="equation-row">
+              <span>Approach</span>
+              <code>p_hat[t+1] = p_hat[t] + clip(p_obj - p_hat[t], Delta_max)</code>
+            </div>
+            <div class="equation-row">
+              <span>Gate</span>
+              <code>g[t] = 1[d_min <= ||p_hat[t] - p_obj|| <= d_max]</code>
+            </div>
+            <div class="equation-row">
+              <span>Close</span>
+              <code>a_grip[t] = close if g[t] = 1, otherwise hold</code>
+            </div>
+            <div class="equation-row">
+              <span>D3</span>
+              <code>Delta_max = 0.04 m, d_min = 0.50 m, d_max = 0.80 m</code>
+            </div>
+            <div class="equation-row">
+              <span>D4 Target</span>
+              <code>J = S_uav + S_arm + S_safe + S_complete with post-close transfer T(t - tau_g)</code>
+            </div>
+          </div>
+        </div>
+        <div class="candidate-plots">
+          <img src="assets/images/candidate_metric_bars_20260628.png" alt="AIR-VLA candidate metric comparison across 20 episode runs">
+          <img src="assets/images/candidate_episode_curves_20260628.png" alt="Episode-level total and completion curves for AIR-VLA candidates">
+        </div>
+        <div class="candidate-grid" id="candidate-grid" aria-live="polite"></div>
+        <div class="candidate-media" id="candidate-media" aria-live="polite"></div>
+      </section>
+
       <section id="media" class="section">
         <div class="section-head">
           <h2>Training And Testing Media</h2>
@@ -100,7 +143,7 @@
         </div>
         <div class="media-note">
           <strong>Media completeness check</strong>
-          <p>Each testing GIF below is generated from the full local MP4 artifact. OpenCV verification reports 100 frames, 10 fps, and 10.0 s for each source clip. The combined teaser montage contains all 300 frames and runs for 30.0 s.</p>
+          <p>Candidate clips in the iteration section are 4.0 s loops from real evaluator frames. Full testing GIFs below keep the original 10.0 s diagnostic clips and the 30.0 s montage.</p>
         </div>
         <div class="media-grid">
           <figure class="media-card">
@@ -219,7 +262,7 @@
 
     <footer>
       <p>Design references: <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>, <a href="https://airvla.github.io/">AirVLA</a>, and <a href="https://nerfies.github.io/">Nerfies-style project page grammar</a>.</p>
-      <p>Last updated: 2026-06-27. This page reports bounded engineering evidence only.</p>
+      <p>Last updated: 2026-06-28. This page reports bounded engineering evidence only.</p>
     </footer>
     <script src="app.js"></script>
   </body>
