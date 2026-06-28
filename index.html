@@ -10,22 +10,23 @@
   <body>
     <header class="hero">
       <nav class="topbar" aria-label="Project navigation">
-        <a href="#abstract">Abstract</a>
-        <a href="#method">Method</a>
-        <a href="#results">Results</a>
-        <a href="#candidate-process">Iterations</a>
-        <a href="#media">Media</a>
-        <a href="#evidence">Evidence</a>
+        <a href="#abstract" data-i18n="nav.abstract">Abstract</a>
+        <a href="#method" data-i18n="nav.method">Method</a>
+        <a href="#results" data-i18n="nav.results">Results</a>
+        <a href="#candidate-process" data-i18n="nav.iterations">Iterations</a>
+        <a href="#media" data-i18n="nav.media">Media</a>
+        <a href="#evidence" data-i18n="nav.evidence">Evidence</a>
+        <button id="language-toggle" class="lang-toggle" type="button" aria-label="Switch language">中文</button>
       </nav>
       <div class="hero-inner">
-        <p class="eyebrow">Work4 RTX5090 server sweep</p>
-        <h1>Execution-Feedback AIR-VLA Current Server Evidence</h1>
-        <p class="subtitle">Real server evidence with evaluator GIFs, compact metrics, training curves, and gate-relative placement equations.</p>
-        <div class="authors">Work4 embodied aerial manipulation study</div>
+        <p class="eyebrow" data-i18n="hero.eyebrow">Work4 RTX5090 server sweep</p>
+        <h1 data-i18n="hero.title">Execution-Feedback AIR-VLA Current Server Evidence</h1>
+        <p class="subtitle" data-i18n="hero.subtitle">Real server evidence with evaluator GIFs, compact metrics, training curves, and gate-relative placement equations.</p>
+        <div class="authors" data-i18n="hero.authors">Work4 embodied aerial manipulation study</div>
         <div class="button-row">
-          <a class="button primary" href="data/site.json">Evidence JSON</a>
+          <a class="button primary" href="data/site.json" data-i18n="hero.evidenceJson">Evidence JSON</a>
           <a class="button" href="https://github.com/xuka0000/ef-air-vla-current-server-page">GitHub</a>
-          <a class="button" href="https://xuka0000.github.io/ef-air-vla-current-server-page/">Project Page</a>
+          <a class="button" href="https://xuka0000.github.io/ef-air-vla-current-server-page/" data-i18n="hero.projectPage">Project Page</a>
         </div>
       </div>
     </header>
@@ -35,58 +36,58 @@
         <div class="teaser-grid">
           <figure class="teaser-card wide">
             <img src="assets/images/air_vla_complete_diagnostic_montage.gif" alt="Complete AIR-VLA diagnostic montage with three full clips">
-            <figcaption>Complete testing montage. Three evaluator diagnostic clips are shown in full, 300 frames at 10 fps for 30.0 s total. Completion remains zero.</figcaption>
+            <figcaption data-i18n="teaser.montageCaption">Complete testing montage. Three evaluator diagnostic clips are shown in full, 300 frames at 10 fps for 30.0 s total. Completion remains zero.</figcaption>
           </figure>
           <figure class="teaser-card">
             <img src="assets/images/bc_cuda20_loss_training.gif" alt="Animated HDF5-only BC CUDA smoke training loss over 20 episodes">
-            <figcaption>Training GIF. 20-episode HDF5-only BC CUDA smoke. This is a data-path and checkpoint smoke, not policy performance.</figcaption>
+            <figcaption data-i18n="teaser.trainingCaption">Training GIF. 20-episode HDF5-only BC CUDA smoke. This is a data-path and checkpoint smoke, not policy performance.</figcaption>
           </figure>
         </div>
       </section>
 
       <section id="abstract" class="section narrow">
-        <h2>Abstract</h2>
-        <p>
+        <h2 data-i18n="abstract.title">Abstract</h2>
+        <p data-i18n="abstract.p1">
           This page records the current Work4 server evidence for AIR-VLA reproduction and Execution-Feedback AIR-VLA design. HDF5 audits, CUDA smokes, evaluator diagnostics, and D1 to D7 candidate runs are linked to local artifacts.
         </p>
-        <p>
+        <p data-i18n="abstract.p2">
           The current result is an engineering diagnostic rather than a performance claim. Official training code, policy inference assets, checkpoints, broad data coverage, and a stable full evaluator are still missing.
         </p>
       </section>
 
       <section id="method" class="section">
         <div class="section-head">
-          <h2>Method Overview</h2>
-          <p>The page follows a paper-project layout while keeping every claim tied to evidence paths and truth levels.</p>
+          <h2 data-i18n="method.title">Method Overview</h2>
+          <p data-i18n="method.desc">The page follows a paper-project layout while keeping every claim tied to evidence paths and truth levels.</p>
         </div>
         <div class="pipeline">
           <article>
             <span>1</span>
-            <h3>Subset Audit</h3>
-            <p>Open and check the 20 available AIR-VLA HDF5 files before any learning smoke.</p>
+            <h3 data-i18n="method.step1.title">Subset Audit</h3>
+            <p data-i18n="method.step1.body">Open and check the 20 available AIR-VLA HDF5 files before any learning smoke.</p>
           </article>
           <article>
             <span>2</span>
-            <h3>HDF5-only BC Smoke</h3>
-            <p>Train a small CUDA model from state means to action means over all 20 HDF5 episodes.</p>
+            <h3 data-i18n="method.step2.title">HDF5-only BC Smoke</h3>
+            <p data-i18n="method.step2.body">Train a small CUDA model from state means to action means over all 20 HDF5 episodes.</p>
           </article>
           <article>
             <span>3</span>
-            <h3>Feedback Smoke</h3>
-            <p>Join state means with execution-feedback fields and test checkpoint, resume, and inference.</p>
+            <h3 data-i18n="method.step3.title">Feedback Smoke</h3>
+            <p data-i18n="method.step3.body">Join state means with execution-feedback fields and test checkpoint, resume, and inference.</p>
           </article>
           <article>
             <span>4</span>
-            <h3>Reproduction Gates</h3>
-            <p>Block long training until public assets, dataset coverage, evaluator stability, and checkpoints exist.</p>
+            <h3 data-i18n="method.step4.title">Reproduction Gates</h3>
+            <p data-i18n="method.step4.body">Block long training until public assets, dataset coverage, evaluator stability, and checkpoints exist.</p>
           </article>
         </div>
       </section>
 
       <section id="results" class="section">
         <div class="section-head">
-          <h2>Current Server Results</h2>
-          <p>All numbers below are smoke or gate measurements. No row is a paper-level performance result.</p>
+          <h2 data-i18n="results.title">Current Server Results</h2>
+          <p data-i18n="results.desc">All numbers below are smoke or gate measurements. No row is a paper-level performance result.</p>
         </div>
         <div class="status-figure">
           <img src="assets/images/current_server_gate_status.png" alt="Current server gate status summary">
@@ -96,30 +97,30 @@
 
       <section id="candidate-process" class="section">
         <div class="section-head">
-          <h2>State-Gated Candidate Iterations</h2>
-          <p>Small-scale diagnostics, real GIFs, and compact equations for the current placement-repair branch.</p>
+          <h2 data-i18n="candidate.title">State-Gated Candidate Iterations</h2>
+          <p data-i18n="candidate.desc">Small-scale diagnostics, real GIFs, and compact equations for the current placement-repair branch.</p>
         </div>
         <div class="iteration-spotlight">
           <figure class="spotlight-media">
             <img src="assets/images/d5_20_lift_standoff_episode_2_loop4s.gif" alt="D5 20-episode gate-relative lift-standoff episode with completion signal">
-            <figcaption>D5-20 stability check. 15 of 20 episodes reached completion signal. Periodic failures remain in episodes 1, 5, 9, 13, and 17.</figcaption>
+            <figcaption data-i18n="candidate.spotlight.caption">D5-20 stability check. 15 of 20 episodes reached completion signal. Periodic failures remain in episodes 1, 5, 9, 13, and 17.</figcaption>
           </figure>
           <div class="equation-panel">
-            <h3>Gate-Relative Lift Model</h3>
+            <h3 data-i18n="equation.title">Gate-Relative Lift Model</h3>
             <div class="equation-row">
-              <span>Objective</span>
+              <span data-i18n="equation.objective">Objective</span>
               <code>J = S_uav + S_arm + S_safe + S_complete</code>
             </div>
             <div class="equation-row">
-              <span>Approach</span>
+              <span data-i18n="equation.approach">Approach</span>
               <code>p_hat[t+1] = p_hat[t] + clip(p_obj - p_hat[t], Delta_max)</code>
             </div>
             <div class="equation-row">
-              <span>Gate</span>
+              <span data-i18n="equation.gate">Gate</span>
               <code>g[t] = 1[d_min <= ||p_hat[t] - p_obj|| <= d_max]</code>
             </div>
             <div class="equation-row">
-              <span>Close</span>
+              <span data-i18n="equation.close">Close</span>
               <code>a_grip[t] = close if g[t] = 1, otherwise hold</code>
             </div>
             <div class="equation-row">
@@ -127,15 +128,15 @@
               <code>Delta_max = 0.04 m, d_min = 0.50 m, d_max = 0.80 m</code>
             </div>
             <div class="equation-row">
-              <span>D4 Target</span>
+              <span data-i18n="equation.d4">D4 Target</span>
               <code>J = S_uav + S_arm + S_safe + S_complete with post-close transfer T(t - tau_g)</code>
             </div>
             <div class="equation-row">
-              <span>D5 Update</span>
+              <span data-i18n="equation.d5">D5 Update</span>
               <code>T(t - tau_g) = small lift, base = standoff, no container offset</code>
             </div>
             <div class="equation-row">
-              <span>Decision</span>
+              <span data-i18n="equation.decision">Decision</span>
               <code>D5-20 remains best. D6 and D7 are rejected. Next is D8 reset-state repair</code>
             </div>
           </div>
@@ -150,65 +151,65 @@
 
       <section id="media" class="section">
         <div class="section-head">
-          <h2>Training And Testing Media</h2>
-          <p>Training media comes from current-server loss CSV files. Testing media comes from complete AIR-VLA evaluator diagnostic MP4 files already synchronized in Work4.</p>
+          <h2 data-i18n="media.title">Training And Testing Media</h2>
+          <p data-i18n="media.desc">Training media comes from current-server loss CSV files. Testing media comes from complete AIR-VLA evaluator diagnostic MP4 files already synchronized in Work4.</p>
         </div>
         <div class="media-note">
-          <strong>Media completeness check</strong>
-          <p>Candidate clips in the iteration section are 4.0 s loops from real evaluator frames. Full testing GIFs below keep the original 10.0 s diagnostic clips and the 30.0 s montage.</p>
+          <strong data-i18n="media.note.title">Media completeness check</strong>
+          <p data-i18n="media.note.body">Candidate clips in the iteration section are 4.0 s loops from real evaluator frames. Full testing GIFs below keep the original 10.0 s diagnostic clips and the 30.0 s montage.</p>
         </div>
         <div class="media-grid">
           <figure class="media-card">
             <img src="assets/images/bc_cuda20_loss_training.gif" alt="HDF5-only BC training loss animation">
-            <figcaption>HDF5-only BC CUDA smoke, 20 records, 1000 plus 100 resume steps.</figcaption>
+            <figcaption data-i18n="media.bc.caption">HDF5-only BC CUDA smoke, 20 records, 1000 plus 100 resume steps.</figcaption>
           </figure>
           <figure class="media-card">
             <img src="assets/images/ef_cuda2_loss_training.gif" alt="EF-AIR-VLA two-row feedback smoke training loss animation">
-            <figcaption>EF-AIR-VLA CUDA smoke, 2 feedback rows, 500 plus 100 resume steps.</figcaption>
+            <figcaption data-i18n="media.ef.caption">EF-AIR-VLA CUDA smoke, 2 feedback rows, 500 plus 100 resume steps.</figcaption>
           </figure>
           <figure class="media-card large">
             <img src="assets/images/air_vla_complete_diagnostic_montage.gif" alt="Complete 30 second AIR-VLA testing diagnostic montage">
-            <figcaption>Complete testing montage across the three synchronized evaluator diagnostics.</figcaption>
+            <figcaption data-i18n="media.montage.caption">Complete testing montage across the three synchronized evaluator diagnostics.</figcaption>
             <div class="media-meta">
-              <span>Complete 30.0 s montage</span>
+              <span data-i18n="media.meta.montage">Complete 30.0 s montage</span>
               <span>300 frames</span>
               <span>10 fps</span>
             </div>
           </figure>
           <figure class="media-card">
             <img src="assets/images/policy_side_grasp_transfer_full.gif" alt="Full policy-side grasp-transfer diagnostic animation">
-            <figcaption>Policy-side grasp-transfer evaluator diagnostic. Completion remains zero.</figcaption>
+            <figcaption data-i18n="media.policy.caption">Policy-side grasp-transfer evaluator diagnostic. Completion remains zero.</figcaption>
             <div class="media-meta">
-              <span>Full 10.0 s</span>
+              <span data-i18n="media.meta.full10">Full 10.0 s</span>
               <span>100 frames</span>
               <span>10 fps</span>
             </div>
             <div class="media-actions">
-              <a href="assets/videos/policy_side_grasp_transfer_episode_1.mp4">Download MP4</a>
+              <a href="assets/videos/policy_side_grasp_transfer_episode_1.mp4" data-i18n="media.download">Download MP4</a>
             </div>
           </figure>
           <figure class="media-card">
             <img src="assets/images/hdf5_replay_raw_full.gif" alt="Full HDF5 raw replay diagnostic animation">
-            <figcaption>HDF5 raw replay diagnostic. It exercises evaluator media output but is not learned-policy evidence.</figcaption>
+            <figcaption data-i18n="media.hdf5raw.caption">HDF5 raw replay diagnostic. It exercises evaluator media output but is not learned-policy evidence.</figcaption>
             <div class="media-meta">
-              <span>Full 10.0 s</span>
+              <span data-i18n="media.meta.full10">Full 10.0 s</span>
               <span>100 frames</span>
               <span>10 fps</span>
             </div>
             <div class="media-actions">
-              <a href="assets/videos/hdf5_replay_raw_episode_1.mp4">Download MP4</a>
+              <a href="assets/videos/hdf5_replay_raw_episode_1.mp4" data-i18n="media.download">Download MP4</a>
             </div>
           </figure>
           <figure class="media-card">
             <img src="assets/images/hdf5_replay_target_base_full.gif" alt="Full HDF5 target-base replay diagnostic animation">
-            <figcaption>HDF5 target-base replay diagnostic. Completion score remains zero.</figcaption>
+            <figcaption data-i18n="media.hdf5target.caption">HDF5 target-base replay diagnostic. Completion score remains zero.</figcaption>
             <div class="media-meta">
-              <span>Full 10.0 s</span>
+              <span data-i18n="media.meta.full10">Full 10.0 s</span>
               <span>100 frames</span>
               <span>10 fps</span>
             </div>
             <div class="media-actions">
-              <a href="assets/videos/hdf5_replay_target_base_episode_1.mp4">Download MP4</a>
+              <a href="assets/videos/hdf5_replay_target_base_episode_1.mp4" data-i18n="media.download">Download MP4</a>
             </div>
           </figure>
         </div>
@@ -216,56 +217,56 @@
 
       <section id="evidence" class="section">
         <div class="section-head">
-          <h2>Evidence And Boundaries</h2>
-          <p>The page uses source files from the Work4 evidence ledger and the current-server goal sweep.</p>
+          <h2 data-i18n="evidence.title">Evidence And Boundaries</h2>
+          <p data-i18n="evidence.desc">The page uses source files from the Work4 evidence ledger and the current-server goal sweep.</p>
         </div>
         <div class="evidence-layout">
           <div>
-            <h3>Supported by this page</h3>
+            <h3 data-i18n="evidence.supported.title">Supported by this page</h3>
             <ul>
-              <li>Current server can run CUDA smoke checks for HDF5-only BC and EF feedback plumbing.</li>
-              <li>The available HDF5 subset is valid for D0 checks, with 20 files and one task.</li>
-              <li>Full reproduction is blocked by missing assets, insufficient data coverage, and official evaluator instability.</li>
+              <li data-i18n="evidence.supported.li1">Current server can run CUDA smoke checks for HDF5-only BC and EF feedback plumbing.</li>
+              <li data-i18n="evidence.supported.li2">The available HDF5 subset is valid for D0 checks, with 20 files and one task.</li>
+              <li data-i18n="evidence.supported.li3">Full reproduction is blocked by missing assets, insufficient data coverage, and official evaluator instability.</li>
             </ul>
           </div>
           <div>
-            <h3>Not supported</h3>
+            <h3 data-i18n="evidence.unsupported.title">Not supported</h3>
             <ul>
-              <li>No AIR-VLA+ full reproduction.</li>
-              <li>No official AIR-VLA training result.</li>
-              <li>No learned-policy task-completion claim.</li>
-              <li>No hardware validation or sim-to-real claim.</li>
+              <li data-i18n="evidence.unsupported.li1">No AIR-VLA+ full reproduction.</li>
+              <li data-i18n="evidence.unsupported.li2">No official AIR-VLA training result.</li>
+              <li data-i18n="evidence.unsupported.li3">No learned-policy task-completion claim.</li>
+              <li data-i18n="evidence.unsupported.li4">No hardware validation or sim-to-real claim.</li>
             </ul>
           </div>
         </div>
         <table class="evidence-table">
           <thead>
             <tr>
-              <th>Artifact</th>
-              <th>Truth level</th>
-              <th>Role</th>
+              <th data-i18n="evidence.table.artifact">Artifact</th>
+              <th data-i18n="evidence.table.truth">Truth level</th>
+              <th data-i18n="evidence.table.role">Role</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>air_vla_current_server_goal_experiment_sweep_20260627.md</td>
               <td>air_vla_current_server_d0_d1_goal_sweep_no_performance_claim</td>
-              <td>Primary report</td>
+              <td data-i18n="evidence.table.primary">Primary report</td>
             </tr>
             <tr>
               <td>air_vla_hdf5_bc_smoke_summary.json</td>
               <td>air_vla_hdf5_bc_d0_smoke_no_performance_claim</td>
-              <td>20-episode CUDA smoke</td>
+              <td data-i18n="evidence.table.bc">20-episode CUDA smoke</td>
             </tr>
             <tr>
               <td>ef_air_vla_d0_model_smoke_summary.json</td>
               <td>ef_air_vla_d0_model_smoke_no_performance_claim</td>
-              <td>2-row feedback smoke</td>
+              <td data-i18n="evidence.table.ef">2-row feedback smoke</td>
             </tr>
             <tr>
               <td>air_vla_full_reproduction_readiness_summary.json</td>
               <td>air_vla_full_reproduction_readiness_audit_no_training</td>
-              <td>Blocked reproduction gate</td>
+              <td data-i18n="evidence.table.gate">Blocked reproduction gate</td>
             </tr>
           </tbody>
         </table>
@@ -273,8 +274,8 @@
     </main>
 
     <footer>
-      <p>Design references: <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>, <a href="https://airvla.github.io/">AirVLA</a>, and <a href="https://nerfies.github.io/">Nerfies-style project page grammar</a>.</p>
-      <p>Last updated: 2026-06-28. This page reports bounded engineering evidence only.</p>
+      <p data-i18n-html="footer.references">Design references: <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>, <a href="https://airvla.github.io/">AirVLA</a>, and <a href="https://nerfies.github.io/">Nerfies-style project page grammar</a>.</p>
+      <p data-i18n="footer.updated">Last updated: 2026-06-28. This page reports bounded engineering evidence only.</p>
     </footer>
     <script src="app.js"></script>
   </body>
