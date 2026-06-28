@@ -47,7 +47,7 @@
       <section id="abstract" class="section narrow">
         <h2>Abstract</h2>
         <p>
-          This page records the current Work4 server evidence for AIR-VLA reproduction and Execution-Feedback AIR-VLA design. The HDF5 audit, BC smoke, feedback smoke, evaluator diagnostics, and D1 to D3 candidate runs are all linked to local artifacts.
+          This page records the current Work4 server evidence for AIR-VLA reproduction and Execution-Feedback AIR-VLA design. The HDF5 audit, BC smoke, feedback smoke, evaluator diagnostics, and D1 to D4 candidate runs are all linked to local artifacts.
         </p>
         <p>
           The current result is an engineering diagnostic rather than a performance claim. Official training code, policy inference assets, checkpoints, broad data coverage, and a stable full evaluator are still missing.
@@ -97,7 +97,7 @@
       <section id="candidate-process" class="section">
         <div class="section-head">
           <h2>State-Gated Candidate Iterations</h2>
-          <p>Small-scale AIR-VLA diagnostics show that action timing and UAV-target distance must be coupled before placement repair can be meaningful.</p>
+          <p>Small-scale AIR-VLA diagnostics show that action timing and UAV-target distance must be coupled before placement repair can be meaningful. D4 rejects an aggressive container-transfer target.</p>
         </div>
         <div class="iteration-spotlight">
           <figure class="spotlight-media">
@@ -125,6 +125,10 @@
             <div class="equation-row">
               <span>D4 Target</span>
               <code>J = S_uav + S_arm + S_safe + S_complete with post-close transfer T(t - tau_g)</code>
+            </div>
+            <div class="equation-row">
+              <span>D4 Result</span>
+              <code>J_D4 = 31.786 &lt; J_D3-5 = 49.058, so D5 sets T to lift only</code>
             </div>
           </div>
         </div>

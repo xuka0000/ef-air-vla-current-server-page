@@ -89,7 +89,7 @@ function metricTile(label, value) {
 }
 
 function renderCandidateIterations(data) {
-  const promoted = new Set(["AB", "D1-20", "D2-5", "D3-20"]);
+  const promoted = new Set(["AB", "D1-20", "D2-5", "D3-20", "D4-5"]);
   const rows = data.iterations.filter((item) => promoted.has(item.id) || item.id === "AB");
   const cards = rows.map((item) => {
     const metrics = item.metrics || {};

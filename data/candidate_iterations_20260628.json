@@ -224,20 +224,42 @@
       "media_status": "20 evaluator videos synchronized locally and verified as nonzero duration",
       "decision": "promote the speed 0.04 gated branch as the next algorithm-design seed",
       "boundary": "only 1 of 20 episodes completed, so it is not a robust success claim"
+    },
+    {
+      "id": "D4-5",
+      "label": "ef_resmove_state_gate_transfer_speed004",
+      "role": "failed placement-repair ablation",
+      "hypothesis": "Anchoring hold, lift, transfer, and release to the actual gated close event should repair sparse D3 placement failures.",
+      "mechanism_source": "D3 produced only one completed episode in 20 runs, and code inspection showed post-close phases were previously tied to configured close_start_step rather than the real gated close start.",
+      "status": "passed",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 12.37,
+        "arm_score_mean": 9.436,
+        "safety_score_mean": 9.98,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 31.785999999999998,
+        "total_score_min": 31.69,
+        "total_score_max": 31.81
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d4_state_gate_transfer_speed004_5ep_20260628_152537_remote/air_vla_candidate_d4_state_gate_transfer_speed004_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; original clips are 2 s, and homepage display uses a 4 s real-frame loop.",
+      "decision": "do not promote; container-offset transfer lowered UAV score and did not improve completion",
+      "boundary": "negative 5-episode diagnostic; it verifies gate-relative phase anchoring but rejects this aggressive transfer target"
     }
   ],
   "next_queue": [
     {
-      "id": "D4",
-      "label": "state-gated speed004 placement repair",
-      "hypothesis": "The remaining failure is not approach scoring but unreliable object placement, so the next branch should add a post-close hold, lift, and container-transfer schedule while preserving D3 close timing.",
-      "planned_ablation": "Compare D3 against D4 over 5 episodes first, then only promote if completion count increases without lowering safety."
+      "id": "D5",
+      "label": "gate-relative lift-only repair",
+      "hypothesis": "D4 shows that actual-close anchoring works but aggressive container-offset transfer destroys UAV score, so the next branch should keep the D3 base target and test only real-close hold plus small lift.",
+      "planned_ablation": "Run 5 episodes with grasp_hold_steps 2, lift_steps 2, lift_step_meters 0.005 to 0.01, transfer_base_mode standoff, and no container offset."
     },
     {
-      "id": "D5",
-      "label": "gate-window sweep",
-      "hypothesis": "The 0.5 to 0.8 m action gate is evaluator-aligned, but the best trigger point may be nearer 0.65 m for object interaction.",
-      "planned_ablation": "Sweep close_gate_min_distance and close_gate_max_distance around 0.6 to 0.75 under 5 episodes."
+      "id": "D6",
+      "label": "close-window and release timing sweep",
+      "hypothesis": "D3 completion is sparse and D4 transfer is too aggressive, so the remaining controllable factors are close trigger window and release delay.",
+      "planned_ablation": "Sweep close_gate_min_distance and close_gate_max_distance around 0.60 to 0.75, then test release_start_step after the actual gate start."
     }
   ],
   "non_claims": [
@@ -302,10 +324,25 @@
         "total_score": 95.0,
         "completion_score": 40.0,
         "caption": "Slower state gate at speed 0.04. This is the only completed diagnostic episode in the 20-episode D3 set."
+      },
+      {
+        "run_id": "D4-5",
+        "episode": 2,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d4_gate_transfer_episode_2_loop4s.gif",
+        "video_path": "assets/videos/d4_gate_transfer_episode_2_loop4s.mp4",
+        "source_video_path": "assets/videos/d4_gate_transfer_episode_2.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 31.81,
+        "completion_score": 0.0,
+        "caption": "Gate-relative transfer branch. It proves the close anchor mechanism but lowers score, so it becomes a negative placement-repair ablation."
       }
     ],
     "video_status_counts": {
-      "nonzero_duration": 95
+      "nonzero_duration": 100
     }
   }
 }
