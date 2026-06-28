@@ -37,6 +37,11 @@ CLIPS = [
         "video": "d4_gate_transfer_episode_2_loop4s.mp4",
         "gif": "d4_gate_transfer_episode_2_loop4s.gif",
     },
+    {
+        "source": "d5_lift_standoff_episode_2.mp4",
+        "video": "d5_lift_standoff_episode_2_loop4s.mp4",
+        "gif": "d5_lift_standoff_episode_2_loop4s.gif",
+    },
 ]
 
 

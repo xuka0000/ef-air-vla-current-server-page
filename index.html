@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Execution-Feedback AIR-VLA Current Server Evidence</title>
-    <meta name="description" content="A bounded AIR-VLA and EF-AIR-VLA D0-D1 project page from the Work4 RTX5090 server sweep.">
+    <meta name="description" content="A bounded AIR-VLA and EF-AIR-VLA D0-D5 project page from the Work4 RTX5090 server sweep.">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -20,7 +20,7 @@
       <div class="hero-inner">
         <p class="eyebrow">Work4 RTX5090 server sweep</p>
         <h1>Execution-Feedback AIR-VLA Current Server Evidence</h1>
-        <p class="subtitle">A bounded AIR-VLA and EF-AIR-VLA project page built from real server logs, metric tables, loss curves, and evaluator rollout media.</p>
+        <p class="subtitle">Real server evidence with evaluator GIFs, compact metrics, training curves, and gate-relative placement equations.</p>
         <div class="authors">Work4 embodied aerial manipulation study</div>
         <div class="button-row">
           <a class="button primary" href="data/site.json">Evidence JSON</a>
@@ -47,7 +47,7 @@
       <section id="abstract" class="section narrow">
         <h2>Abstract</h2>
         <p>
-          This page records the current Work4 server evidence for AIR-VLA reproduction and Execution-Feedback AIR-VLA design. The HDF5 audit, BC smoke, feedback smoke, evaluator diagnostics, and D1 to D4 candidate runs are all linked to local artifacts.
+          This page records the current Work4 server evidence for AIR-VLA reproduction and Execution-Feedback AIR-VLA design. HDF5 audits, CUDA smokes, evaluator diagnostics, and D1 to D5 candidate runs are linked to local artifacts.
         </p>
         <p>
           The current result is an engineering diagnostic rather than a performance claim. Official training code, policy inference assets, checkpoints, broad data coverage, and a stable full evaluator are still missing.
@@ -97,15 +97,19 @@
       <section id="candidate-process" class="section">
         <div class="section-head">
           <h2>State-Gated Candidate Iterations</h2>
-          <p>Small-scale AIR-VLA diagnostics show that action timing and UAV-target distance must be coupled before placement repair can be meaningful. D4 rejects an aggressive container-transfer target.</p>
+          <p>Small-scale diagnostics, real GIFs, and compact equations for the current placement-repair branch.</p>
         </div>
         <div class="iteration-spotlight">
           <figure class="spotlight-media">
-            <img src="assets/images/d3_state_gate_speed004_episode_1_loop4s.gif" alt="D3 state-gated speed 0.04 episode with completion signal">
-            <figcaption>D3 state gate, speed 0.04. The best diagnostic episode reached total 95 and completion 40. The 20-episode completion rate is still 1 of 20.</figcaption>
+            <img src="assets/images/d5_lift_standoff_episode_2_loop4s.gif" alt="D5 gate-relative lift-standoff episode with completion signal">
+            <figcaption>D5 gate-relative lift-standoff. Episode 2 reached total 99.99 and completion 40. The branch still needs a 20-episode stability gate.</figcaption>
           </figure>
           <div class="equation-panel">
-            <h3>Model Expression</h3>
+            <h3>Gate-Relative Lift Model</h3>
+            <div class="equation-row">
+              <span>Objective</span>
+              <code>J = S_uav + S_arm + S_safe + S_complete</code>
+            </div>
             <div class="equation-row">
               <span>Approach</span>
               <code>p_hat[t+1] = p_hat[t] + clip(p_obj - p_hat[t], Delta_max)</code>
@@ -127,17 +131,21 @@
               <code>J = S_uav + S_arm + S_safe + S_complete with post-close transfer T(t - tau_g)</code>
             </div>
             <div class="equation-row">
-              <span>D4 Result</span>
-              <code>J_D4 = 31.786 &lt; J_D3-5 = 49.058, so D5 sets T to lift only</code>
+              <span>D5 Update</span>
+              <code>T(t - tau_g) = small lift, base = standoff, no container offset</code>
+            </div>
+            <div class="equation-row">
+              <span>Decision</span>
+              <code>J_D5 = 65.628, C_D5 = 24.000, promote only to D5-20</code>
             </div>
           </div>
         </div>
+        <div class="candidate-media" id="candidate-media" aria-live="polite"></div>
         <div class="candidate-plots">
           <img src="assets/images/candidate_metric_bars_20260628.png" alt="AIR-VLA candidate metric comparison across 20 episode runs">
           <img src="assets/images/candidate_episode_curves_20260628.png" alt="Episode-level total and completion curves for AIR-VLA candidates">
         </div>
         <div class="candidate-grid" id="candidate-grid" aria-live="polite"></div>
-        <div class="candidate-media" id="candidate-media" aria-live="polite"></div>
       </section>
 
       <section id="media" class="section">

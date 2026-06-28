@@ -246,20 +246,42 @@
       "media_status": "5 evaluator videos synchronized locally; original clips are 2 s, and homepage display uses a 4 s real-frame loop.",
       "decision": "do not promote; container-offset transfer lowered UAV score and did not improve completion",
       "boundary": "negative 5-episode diagnostic; it verifies gate-relative phase anchoring but rejects this aggressive transfer target"
+    },
+    {
+      "id": "D5-5",
+      "label": "ef_resmove_state_gate_lift_standoff_speed004",
+      "role": "current promoted placement-repair candidate",
+      "hypothesis": "Removing D4 container offset while keeping actual-close anchoring and a small lift should preserve D3 approach quality and improve placement completion.",
+      "mechanism_source": "D4 rejected aggressive container-offset transfer, so D5 keeps the real gated close anchor but returns transfer_base_mode to standoff with only small post-close lift.",
+      "status": "passed",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 15.0,
+        "arm_score_mean": 16.754,
+        "safety_score_mean": 9.874,
+        "completion_score_mean": 24.0,
+        "total_score_mean": 65.628,
+        "total_score_min": 18.51,
+        "total_score_max": 99.99
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d5_state_gate_lift_standoff_speed004_5ep_20260628_155755_remote/air_vla_candidate_d5_state_gate_lift_standoff_speed004_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; original clips are 2 s, and homepage display uses a 4 s real-frame loop.",
+      "decision": "promote to 20-episode stability check before any paper-level claim",
+      "boundary": "positive 5-episode diagnostic with 3 of 5 completions, but first and fifth episodes fail, so robustness is not established"
     }
   ],
   "next_queue": [
     {
-      "id": "D5",
-      "label": "gate-relative lift-only repair",
-      "hypothesis": "D4 shows that actual-close anchoring works but aggressive container-offset transfer destroys UAV score, so the next branch should keep the D3 base target and test only real-close hold plus small lift.",
-      "planned_ablation": "Run 5 episodes with grasp_hold_steps 2, lift_steps 2, lift_step_meters 0.005 to 0.01, transfer_base_mode standoff, and no container offset."
+      "id": "D5-20",
+      "label": "D5 20-episode stability check",
+      "hypothesis": "D5 has a strong 5-episode completion signal, but the failed first and fifth episodes require a 20-episode stability check before promotion.",
+      "planned_ablation": "Run the same D5 settings for 20 episodes and promote only if completion count remains clearly above D3 without safety collapse."
     },
     {
       "id": "D6",
       "label": "close-window and release timing sweep",
-      "hypothesis": "D3 completion is sparse and D4 transfer is too aggressive, so the remaining controllable factors are close trigger window and release delay.",
-      "planned_ablation": "Sweep close_gate_min_distance and close_gate_max_distance around 0.60 to 0.75, then test release_start_step after the actual gate start."
+      "hypothesis": "D5 failures may come from close-window timing or release timing rather than lift magnitude.",
+      "planned_ablation": "Sweep close_gate_min_distance and close_gate_max_distance around 0.60 to 0.75, then test release_start_step relative to the actual gate start."
     }
   ],
   "non_claims": [
@@ -339,10 +361,25 @@
         "total_score": 31.81,
         "completion_score": 0.0,
         "caption": "Gate-relative transfer branch. It proves the close anchor mechanism but lowers score, so it becomes a negative placement-repair ablation."
+      },
+      {
+        "run_id": "D5-5",
+        "episode": 2,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d5_lift_standoff_episode_2_loop4s.gif",
+        "video_path": "assets/videos/d5_lift_standoff_episode_2_loop4s.mp4",
+        "source_video_path": "assets/videos/d5_lift_standoff_episode_2.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 99.99,
+        "completion_score": 40.0,
+        "caption": "Gate-relative lift-standoff branch. It removes D4 container offset and gives the strongest current 5-episode completion signal."
       }
     ],
     "video_status_counts": {
-      "nonzero_duration": 100
+      "nonzero_duration": 105
     }
   }
 }
