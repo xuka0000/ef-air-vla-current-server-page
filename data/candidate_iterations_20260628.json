@@ -1,6 +1,6 @@
 {
   "truth_level": "air_vla_candidate_iteration_process_no_performance_claim",
-  "updated_at": "2026-06-28T13:57:58.826944+00:00",
+  "updated_at": "2026-06-28T15:37:56.680586+00:00",
   "source_note": "All rows are small-scale Work4 AIR-VLA D0 engineering diagnostics. They are not AIR-VLA+ reproduction or paper-level performance claims.",
   "metric_columns": [
     "episode_count",
@@ -436,20 +436,34 @@
       "media_status": "No remote media because D10 stops at the local field gate.",
       "decision": "do not launch an online object-feedback policy until the evaluator request payload exposes object or contact fields",
       "boundary": "The evaluator writes object geometry into rollout diagnostics, but the policy request contains only images, prompt, and robot state. This is a no-go for a new online object-feedback policy without a payload-extension smoke test."
+    },
+    {
+      "id": "D11",
+      "label": "D11 feedback payload extension smoke",
+      "role": "request-schema preparation for feedback-conditioned policy",
+      "hypothesis": "Object-relative policy repair should only be tested after object, container, end-effector, UAV, gripper, distance, and task-phase fields are available in the online policy request.",
+      "mechanism_source": "D10 showed that the old policy request exposed images, prompt, and robot state only. D11 adds a tested feedback payload without changing evaluator score calculation.",
+      "status": "ready_for_remote_smoke",
+      "episode_count": 0,
+      "metrics": {},
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d11_feedback_payload_smoke_20260628/air_vla_d11_feedback_payload_smoke_summary.json",
+      "media_status": "No remote media because D11 is a local schema smoke, not a rollout.",
+      "decision": "use as the D12 entry gate; run remote payload smoke before any feedback-conditioned 5-episode branch",
+      "boundary": "local request-schema preparation only; no AIR-VLA+ reproduction, official training, learned-policy, evaluator performance, robust completion, hardware, sim-to-real, or paper-level performance claim"
     }
   ],
   "next_queue": [
     {
-      "id": "D10",
-      "label": "online feedback field audit completed",
-      "hypothesis": "The current evaluator request does not expose object or contact feedback to the policy server.",
-      "planned_ablation": "Do not run another timing sweep. Treat D10 as a field-gate result and design a request-payload extension before any online object-feedback rollout."
+      "id": "D11",
+      "label": "feedback payload extension completed locally",
+      "hypothesis": "The evaluator can now build a policy request with object-relative feedback fields without changing the evaluator score calculation.",
+      "planned_ablation": "Run a remote payload smoke on the current server and inspect live field population before any feedback-conditioned policy test."
     },
     {
-      "id": "D11",
-      "label": "evaluator request payload extension smoke",
-      "hypothesis": "A legal evaluator-side request extension should pass object pose, container pose, end-effector pose, UAV pose, gripper state, and task phase to the policy server without changing score calculation.",
-      "planned_ablation": "Write tests for payload schema and a one-episode smoke or 5-episode gate only after the payload extension is verified locally."
+      "id": "D12",
+      "label": "feedback-conditioned release branch",
+      "hypothesis": "A D5-preserving policy can use live object-relative feedback to reduce the periodic placement failure observed in D5-20.",
+      "planned_ablation": "First run a payload-only smoke. If fields are populated, run a 5-episode feedback branch against D5 timing and compare to D5-20, D8, and D9 boundaries."
     }
   ],
   "non_claims": [
@@ -625,6 +639,9 @@
       "nonzero_duration": 155
     },
     "d10_feedback_audit_json": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d10_feedback_field_audit_20260628/air_vla_d10_feedback_field_audit_20260628.json",
-    "d10_feedback_diagnostic_csv": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d10_feedback_field_audit_20260628/air_vla_d10_feedback_diagnostic_rows_20260628.csv"
+    "d10_feedback_diagnostic_csv": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d10_feedback_field_audit_20260628/air_vla_d10_feedback_diagnostic_rows_20260628.csv",
+    "d11_feedback_payload_summary_json": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d11_feedback_payload_smoke_20260628/air_vla_d11_feedback_payload_smoke_summary.json",
+    "d11_feedback_payload_evaluator_copy": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d11_feedback_payload_smoke_20260628/vla_evaluator_static_support_d11_feedback_payload.py",
+    "d11_feedback_payload_test": "../../../benchmark_swarm_rl/tests/test_air_vla_d11_feedback_payload_extension_20260628.py"
   }
 }
