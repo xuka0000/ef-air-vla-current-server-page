@@ -290,20 +290,64 @@
       "media_status": "20 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop from episode 2.",
       "decision": "retain as current best small-scale engineering candidate and use periodic failures to design D6",
       "boundary": "15 of 20 episodes completed, but episodes 1, 5, 9, 13, and 17 still fail, so this is not a paper-level robust performance claim"
+    },
+    {
+      "id": "D6-5",
+      "label": "D6 post-release guard2 speed004 5ep",
+      "role": "negative post-release guard ablation",
+      "hypothesis": "A short post-release guard may prevent the D5 periodic object escape without changing the D5 gate and lift mechanism.",
+      "mechanism_source": "D5-20 diagnostics showed repeated object escape after opening in episodes 5, 9, 13, and 17.",
+      "status": "rejected",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 3.7039999999999997,
+        "arm_score_mean": 9.662,
+        "safety_score_mean": 9.994,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 23.360000000000003,
+        "total_score_min": 19.89,
+        "total_score_max": 37.24
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d6_post_release_guard2_speed004_5ep_20260628_174000_remote/air_vla_candidate_d6_post_release_guard2_speed004_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop.",
+      "decision": "reject post-release base freeze because it drops completion to zero and lowers total score",
+      "boundary": "negative 5-episode diagnostic; useful for mechanism exclusion only"
+    },
+    {
+      "id": "D7-5",
+      "label": "D7 release22 speed004 5ep",
+      "role": "negative release-delay ablation",
+      "hypothesis": "Keeping the grasp closed for four extra action steps may stabilize the object before opening.",
+      "mechanism_source": "D6 showed that freezing after opening is too strong, so D7 tests a pre-open timing change only.",
+      "status": "rejected",
+      "episode_count": 5,
+      "metrics": {
+        "uav_score_mean": 0.0,
+        "arm_score_mean": 13.778,
+        "safety_score_mean": 9.95,
+        "completion_score_mean": 0.0,
+        "total_score_mean": 23.728,
+        "total_score_min": 21.2,
+        "total_score_max": 24.36
+      },
+      "source_summary": "../../../benchmark_swarm_rl/outputs/air_vla_candidate_d7_release_delay4_speed004_5ep_20260628_174800_remote/air_vla_candidate_d7_release_delay4_speed004_5ep_summary.json",
+      "media_status": "5 evaluator videos synchronized locally; homepage display uses a 4 s real-frame loop.",
+      "decision": "reject simple release delay because it destroys the D5 approach score and keeps completion at zero",
+      "boundary": "negative 5-episode diagnostic; useful for excluding release-delay-only repair"
     }
   ],
   "next_queue": [
     {
-      "id": "D6",
-      "label": "periodic reset and gate-state failure repair",
-      "hypothesis": "D5-20 failures repeat every four episodes, which suggests reset, reconnect, or phase-state initialization rather than random placement noise.",
-      "planned_ablation": "Inspect failed episode diagnostics, compare policy status across episodes 1, 5, 9, 13, and 17, then test reset-aware gate initialization before changing the lift mechanism."
+      "id": "D8",
+      "label": "reset-state normalization without post-open freeze",
+      "hypothesis": "D6 and D7 show that post-open freezing and release delay both destroy D5 success paths. The next repair should normalize or reinitialize episode state before rollout while keeping the D5 timing mechanism unchanged.",
+      "planned_ablation": "Run a reset-state probe or evaluator-state normalization branch before touching D5 gripper timing again."
     },
     {
-      "id": "D7",
-      "label": "close-window and release timing sweep",
-      "hypothesis": "After reset-periodicity is controlled, remaining failures may come from close-window timing or release timing.",
-      "planned_ablation": "Sweep close_gate_min_distance and close_gate_max_distance around 0.60 to 0.75, then test release_start_step relative to the actual gate start."
+      "id": "D9",
+      "label": "narrow close-window sweep around D5",
+      "hypothesis": "If reset-state repair is not enough, the remaining near-threshold miss may require a smaller close-window change rather than release timing changes.",
+      "planned_ablation": "Sweep close gate bounds around the current D5 values while preserving D5 release and lift settings."
     }
   ],
   "non_claims": [
@@ -413,10 +457,40 @@
         "total_score": 99.99,
         "completion_score": 40.0,
         "caption": "D5 20-episode stability check. The run completed 15 of 20 episodes, while a periodic failure pattern remains for D6."
+      },
+      {
+        "run_id": "D6-5",
+        "episode": 5,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d6_guard2_episode_5_loop4s.gif",
+        "video_path": "assets/videos/d6_guard2_episode_5_loop4s.mp4",
+        "source_video_path": "assets/videos/d6_guard2_episode_5.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 19.89,
+        "completion_score": 0.0,
+        "caption": "D6 post-release guard. It removes the far object escape but collapses the D5 success path, so it is rejected."
+      },
+      {
+        "run_id": "D7-5",
+        "episode": 2,
+        "kind": "gif",
+        "display": true,
+        "display_path": "assets/images/d7_release22_episode_2_loop4s.gif",
+        "video_path": "assets/videos/d7_release22_episode_2_loop4s.mp4",
+        "source_video_path": "assets/videos/d7_release22_episode_2.mp4",
+        "duration_sec": 4.0,
+        "frame_count": 40,
+        "fps": 10.0,
+        "total_score": 24.36,
+        "completion_score": 0.0,
+        "caption": "D7 release delay. It improves arm score slightly but loses UAV score entirely, so it is rejected."
       }
     ],
     "video_status_counts": {
-      "nonzero_duration": 125
+      "nonzero_duration": 135
     }
   }
 }

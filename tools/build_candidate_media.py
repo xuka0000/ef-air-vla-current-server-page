@@ -47,6 +47,16 @@ CLIPS = [
         "video": "d5_20_lift_standoff_episode_2_loop4s.mp4",
         "gif": "d5_20_lift_standoff_episode_2_loop4s.gif",
     },
+    {
+        "source": "d6_guard2_episode_5.mp4",
+        "video": "d6_guard2_episode_5_loop4s.mp4",
+        "gif": "d6_guard2_episode_5_loop4s.gif",
+    },
+    {
+        "source": "d7_release22_episode_2.mp4",
+        "video": "d7_release22_episode_2_loop4s.mp4",
+        "gif": "d7_release22_episode_2_loop4s.gif",
+    },
 ]
 
 
